@@ -242,8 +242,8 @@ class __Pyx_FakeReference {
 #define _USE_MATH_DEFINES
 #endif
 #include <math.h>
-#define __PYX_HAVE__diptest__diptest
-#define __PYX_HAVE_API__diptest__diptest
+#define __PYX_HAVE__diptest___diptest
+#define __PYX_HAVE_API__diptest___diptest
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
@@ -455,9 +455,9 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "diptest/diptest.pyx",
+  "diptest/_diptest.pyx",
   "__init__.pxd",
-  "diptest/stringsource",
+  "stringsource",
   "type.pxd",
 };
 struct __pyx_memoryview_obj;
@@ -552,7 +552,7 @@ typedef volatile __pyx_atomic_int_type __pyx_atomic_int;
 #endif
 
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":726
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":726
  * # in Cython to enable them only on the right systems.
  * 
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
@@ -561,7 +561,7 @@ typedef volatile __pyx_atomic_int_type __pyx_atomic_int;
  */
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":727
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":727
  * 
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
@@ -570,7 +570,7 @@ typedef npy_int8 __pyx_t_5numpy_int8_t;
  */
 typedef npy_int16 __pyx_t_5numpy_int16_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":728
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":728
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
@@ -579,7 +579,7 @@ typedef npy_int16 __pyx_t_5numpy_int16_t;
  */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":729
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":729
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
@@ -588,7 +588,7 @@ typedef npy_int32 __pyx_t_5numpy_int32_t;
  */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":733
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":733
  * #ctypedef npy_int128     int128_t
  * 
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
@@ -597,7 +597,7 @@ typedef npy_int64 __pyx_t_5numpy_int64_t;
  */
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":734
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":734
  * 
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
@@ -606,7 +606,7 @@ typedef npy_uint8 __pyx_t_5numpy_uint8_t;
  */
 typedef npy_uint16 __pyx_t_5numpy_uint16_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":735
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":735
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
@@ -615,7 +615,7 @@ typedef npy_uint16 __pyx_t_5numpy_uint16_t;
  */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":736
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":736
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
@@ -624,7 +624,7 @@ typedef npy_uint32 __pyx_t_5numpy_uint32_t;
  */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":740
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":740
  * #ctypedef npy_uint128    uint128_t
  * 
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
@@ -633,7 +633,7 @@ typedef npy_uint64 __pyx_t_5numpy_uint64_t;
  */
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":741
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":741
  * 
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
@@ -642,7 +642,7 @@ typedef npy_float32 __pyx_t_5numpy_float32_t;
  */
 typedef npy_float64 __pyx_t_5numpy_float64_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":750
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":750
  * # The int types are mapped a bit surprising --
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t             # <<<<<<<<<<<<<<
@@ -651,7 +651,7 @@ typedef npy_float64 __pyx_t_5numpy_float64_t;
  */
 typedef npy_long __pyx_t_5numpy_int_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":751
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":751
  * # numpy.int corresponds to 'l' and numpy.long to 'q'
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t             # <<<<<<<<<<<<<<
@@ -660,7 +660,7 @@ typedef npy_long __pyx_t_5numpy_int_t;
  */
 typedef npy_longlong __pyx_t_5numpy_long_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":752
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":752
  * ctypedef npy_long       int_t
  * ctypedef npy_longlong   long_t
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
@@ -669,7 +669,7 @@ typedef npy_longlong __pyx_t_5numpy_long_t;
  */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":754
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":754
  * ctypedef npy_longlong   longlong_t
  * 
  * ctypedef npy_ulong      uint_t             # <<<<<<<<<<<<<<
@@ -678,7 +678,7 @@ typedef npy_longlong __pyx_t_5numpy_longlong_t;
  */
 typedef npy_ulong __pyx_t_5numpy_uint_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":755
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":755
  * 
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t             # <<<<<<<<<<<<<<
@@ -687,7 +687,7 @@ typedef npy_ulong __pyx_t_5numpy_uint_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":756
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":756
  * ctypedef npy_ulong      uint_t
  * ctypedef npy_ulonglong  ulong_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
@@ -696,7 +696,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulong_t;
  */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":758
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":758
  * ctypedef npy_ulonglong  ulonglong_t
  * 
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
@@ -705,7 +705,7 @@ typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
  */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":759
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":759
  * 
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
@@ -714,7 +714,7 @@ typedef npy_intp __pyx_t_5numpy_intp_t;
  */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":761
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":761
  * ctypedef npy_uintp      uintp_t
  * 
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
@@ -723,7 +723,7 @@ typedef npy_uintp __pyx_t_5numpy_uintp_t;
  */
 typedef npy_double __pyx_t_5numpy_float_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":762
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":762
  * 
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
@@ -732,7 +732,7 @@ typedef npy_double __pyx_t_5numpy_float_t;
  */
 typedef npy_double __pyx_t_5numpy_double_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":763
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":763
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
@@ -767,7 +767,7 @@ struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":765
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":765
  * ctypedef npy_longdouble longdouble_t
  * 
  * ctypedef npy_cfloat      cfloat_t             # <<<<<<<<<<<<<<
@@ -776,7 +776,7 @@ struct __pyx_memoryviewslice_obj;
  */
 typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":766
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":766
  * 
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t             # <<<<<<<<<<<<<<
@@ -785,7 +785,7 @@ typedef npy_cfloat __pyx_t_5numpy_cfloat_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":767
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":767
  * ctypedef npy_cfloat      cfloat_t
  * ctypedef npy_cdouble     cdouble_t
  * ctypedef npy_clongdouble clongdouble_t             # <<<<<<<<<<<<<<
@@ -794,7 +794,7 @@ typedef npy_cdouble __pyx_t_5numpy_cdouble_t;
  */
 typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":769
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":769
  * ctypedef npy_clongdouble clongdouble_t
  * 
  * ctypedef npy_cdouble     complex_t             # <<<<<<<<<<<<<<
@@ -1453,7 +1453,7 @@ static PyTypeObject *__pyx_ptype_5numpy_ndarray = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
-/* Module declarations from 'diptest.diptest' */
+/* Module declarations from 'diptest._diptest' */
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
@@ -1497,10 +1497,10 @@ static void __pyx_memoryview_slice_assign_scalar(__Pyx_memviewslice *, int, size
 static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize_t *, int, size_t, void *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
-#define __Pyx_MODULE_NAME "diptest.diptest"
-int __pyx_module_is_main_diptest__diptest = 0;
+#define __Pyx_MODULE_NAME "diptest._diptest"
+int __pyx_module_is_main_diptest___diptest = 0;
 
-/* Implementation of 'diptest.diptest' */
+/* Implementation of 'diptest._diptest' */
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -1510,7 +1510,7 @@ static PyObject *__pyx_builtin_Ellipsis;
 static PyObject *__pyx_builtin_TypeError;
 static PyObject *__pyx_builtin_id;
 static PyObject *__pyx_builtin_IndexError;
-static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x, PyObject *__pyx_v_min_is_0, PyObject *__pyx_v_full_output, PyObject *__pyx_v_debug); /* proto */
+static PyObject *__pyx_pf_7diptest_8_diptest_diptest(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x, PyObject *__pyx_v_min_is_0, PyObject *__pyx_v_full_output, PyObject *__pyx_v_debug); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
@@ -1635,8 +1635,8 @@ static char __pyx_k_full_output[] = "full_output";
 static char __pyx_k_RuntimeError[] = "RuntimeError";
 static char __pyx_k_pyx_getbuffer[] = "__pyx_getbuffer";
 static char __pyx_k_allocate_buffer[] = "allocate_buffer";
-static char __pyx_k_diptest_diptest[] = "diptest.diptest";
 static char __pyx_k_dtype_is_object[] = "dtype_is_object";
+static char __pyx_k_diptest__diptest[] = "diptest._diptest";
 static char __pyx_k_strided_and_direct[] = "<strided and direct>";
 static char __pyx_k_strided_and_indirect[] = "<strided and indirect>";
 static char __pyx_k_contiguous_and_direct[] = "<contiguous and direct>";
@@ -1653,7 +1653,7 @@ static char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cython.ar
 static char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
 static char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
-static char __pyx_k_home_alistair_src_python_diptes[] = "/home/alistair/src/python/diptest/diptest/diptest.pyx";
+static char __pyx_k_home_alistair_src_python_diptes[] = "/home/alistair/src/python/diptest/diptest/_diptest.pyx";
 static char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
 static char __pyx_k_All_dimensions_preceding_dimensi[] = "All dimensions preceding dimension %d must be indexed and not sliced";
 static char __pyx_k_Buffer_view_does_not_expose_stri[] = "Buffer view does not expose strides";
@@ -1704,7 +1704,7 @@ static PyObject *__pyx_n_s_debug;
 static PyObject *__pyx_n_s_debug_2;
 static PyObject *__pyx_n_s_dip;
 static PyObject *__pyx_n_s_diptest;
-static PyObject *__pyx_n_s_diptest_diptest;
+static PyObject *__pyx_n_s_diptest__diptest;
 static PyObject *__pyx_n_s_double;
 static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_dtype_is_object;
@@ -1802,7 +1802,7 @@ static PyObject *__pyx_tuple__25;
 static PyObject *__pyx_tuple__26;
 static PyObject *__pyx_codeobj__21;
 
-/* "diptest/diptest.pyx":22
+/* "diptest/_diptest.pyx":22
  * 
  * 
  * def diptest(x, min_is_0=True, full_output=False, debug=0):             # <<<<<<<<<<<<<<
@@ -1811,10 +1811,10 @@ static PyObject *__pyx_codeobj__21;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7diptest_7diptest_1diptest(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_7diptest_7diptest_diptest[] = "\n    Hartigan & Hartigan's dip test statistic for unimodality\n\n    Arguments:\n    -----------\n    x:              [n,] array  containing the input data\n\n    min_is_0:       boolean, if True the minimum value of the test statistic is\n                    allowed to be zero in cases where n < 2 or all values in x\n                    are identical\n\n    full_output:    boolean, see below\n\n    debug:          int, 0 <= debug <= 2, print debugging messages\n\n    Returns:\n    -----------\n    dip:    double, the dip statistic\n\n    [res]:  dict, returned if full_output == True. contains the following\n            fields:\n\n            xs:     sorted input data as doubles\n            n:      len(x)\n            dip:    dip statistic\n            lo:     indices of lower end of modal interval\n            hi:     indices of upper end of modal interval\n            xl:     lower end of modal interval\n            xu:     upper end of modal interval\n            gcm:    (last-used) indices of the greatest concave majorant\n            lcm:    (last-used) indices of the least concave majorant\n\n    ";
-static PyMethodDef __pyx_mdef_7diptest_7diptest_1diptest = {"diptest", (PyCFunction)__pyx_pw_7diptest_7diptest_1diptest, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7diptest_7diptest_diptest};
-static PyObject *__pyx_pw_7diptest_7diptest_1diptest(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_7diptest_8_diptest_1diptest(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_7diptest_8_diptest_diptest[] = "\n    Hartigan & Hartigan's dip test statistic for unimodality\n\n    Arguments:\n    -----------\n    x:              [n,] array  containing the input data\n\n    min_is_0:       boolean, if True the minimum value of the test statistic is\n                    allowed to be zero in cases where n < 2 or all values in x\n                    are identical\n\n    full_output:    boolean, see below\n\n    debug:          int, 0 <= debug <= 2, print debugging messages\n\n    Returns:\n    -----------\n    dip:    double, the dip statistic\n\n    [res]:  dict, returned if full_output == True. contains the following\n            fields:\n\n            xs:     sorted input data as doubles\n            n:      len(x)\n            dip:    dip statistic\n            lo:     indices of lower end of modal interval\n            hi:     indices of upper end of modal interval\n            xl:     lower end of modal interval\n            xu:     upper end of modal interval\n            gcm:    (last-used) indices of the greatest concave majorant\n            lcm:    (last-used) indices of the least concave majorant\n\n    ";
+static PyMethodDef __pyx_mdef_7diptest_8_diptest_1diptest = {"diptest", (PyCFunction)__pyx_pw_7diptest_8_diptest_1diptest, METH_VARARGS|METH_KEYWORDS, __pyx_doc_7diptest_8_diptest_diptest};
+static PyObject *__pyx_pw_7diptest_8_diptest_1diptest(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_x = 0;
   PyObject *__pyx_v_min_is_0 = 0;
   PyObject *__pyx_v_full_output = 0;
@@ -1885,18 +1885,18 @@ static PyObject *__pyx_pw_7diptest_7diptest_1diptest(PyObject *__pyx_self, PyObj
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("diptest", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("diptest.diptest.diptest", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("diptest._diptest.diptest", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7diptest_7diptest_diptest(__pyx_self, __pyx_v_x, __pyx_v_min_is_0, __pyx_v_full_output, __pyx_v_debug);
+  __pyx_r = __pyx_pf_7diptest_8_diptest_diptest(__pyx_self, __pyx_v_x, __pyx_v_min_is_0, __pyx_v_full_output, __pyx_v_debug);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x, PyObject *__pyx_v_min_is_0, PyObject *__pyx_v_full_output, PyObject *__pyx_v_debug) {
+static PyObject *__pyx_pf_7diptest_8_diptest_diptest(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x, PyObject *__pyx_v_min_is_0, PyObject *__pyx_v_full_output, PyObject *__pyx_v_debug) {
   __Pyx_memviewslice __pyx_v_x_ = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_n;
   double __pyx_v_dip;
@@ -1942,7 +1942,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __Pyx_RefNannySetupContext("diptest", 0);
   __Pyx_INCREF(__pyx_v_x);
 
-  /* "diptest/diptest.pyx":59
+  /* "diptest/_diptest.pyx":59
  *     cdef:
  *         double[:] x_
  *         int n = x.shape[0]             # <<<<<<<<<<<<<<
@@ -1958,7 +1958,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_n = __pyx_t_3;
 
-  /* "diptest/diptest.pyx":61
+  /* "diptest/_diptest.pyx":61
  *         int n = x.shape[0]
  * 
  *         double dip = np.nan             # <<<<<<<<<<<<<<
@@ -1974,7 +1974,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_dip = __pyx_t_4;
 
-  /* "diptest/diptest.pyx":62
+  /* "diptest/_diptest.pyx":62
  * 
  *         double dip = np.nan
  *         int[:] lo_hi = np.empty(4, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -2006,7 +2006,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "diptest/diptest.pyx":63
+  /* "diptest/_diptest.pyx":63
  *         double dip = np.nan
  *         int[:] lo_hi = np.empty(4, dtype=np.int32)
  *         int ifault = 0             # <<<<<<<<<<<<<<
@@ -2015,7 +2015,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
  */
   __pyx_v_ifault = 0;
 
-  /* "diptest/diptest.pyx":64
+  /* "diptest/_diptest.pyx":64
  *         int[:] lo_hi = np.empty(4, dtype=np.int32)
  *         int ifault = 0
  *         int[:] gcm = np.empty(n, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -2055,7 +2055,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "diptest/diptest.pyx":65
+  /* "diptest/_diptest.pyx":65
  *         int ifault = 0
  *         int[:] gcm = np.empty(n, dtype=np.int32)
  *         int[:] lcm = np.empty(n, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -2095,7 +2095,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "diptest/diptest.pyx":66
+  /* "diptest/_diptest.pyx":66
  *         int[:] gcm = np.empty(n, dtype=np.int32)
  *         int[:] lcm = np.empty(n, dtype=np.int32)
  *         int[:] mn = np.empty(n, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -2135,7 +2135,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "diptest/diptest.pyx":67
+  /* "diptest/_diptest.pyx":67
  *         int[:] lcm = np.empty(n, dtype=np.int32)
  *         int[:] mn = np.empty(n, dtype=np.int32)
  *         int[:] mj = np.empty(n, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -2175,7 +2175,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "diptest/diptest.pyx":69
+  /* "diptest/_diptest.pyx":69
  *         int[:] mj = np.empty(n, dtype=np.int32)
  * 
  *         int min_is_0_ = min_is_0             # <<<<<<<<<<<<<<
@@ -2185,19 +2185,19 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_min_is_0); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 69; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_min_is_0_ = __pyx_t_3;
 
-  /* "diptest/diptest.pyx":70
+  /* "diptest/_diptest.pyx":70
  * 
  *         int min_is_0_ = min_is_0
  *         int debug_ = debug             # <<<<<<<<<<<<<<
  * 
- *     # cast to double, force a copy to avoid inplace sort
+ *     # cast to double, force a copy to avoid inplace
  */
   __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_debug); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_debug_ = __pyx_t_3;
 
-  /* "diptest/diptest.pyx":73
+  /* "diptest/_diptest.pyx":73
  * 
- *     # cast to double, force a copy to avoid inplace sort
+ *     # cast to double, force a copy to avoid inplace
  *     x = np.array(x, dtype=np.double, copy=True)             # <<<<<<<<<<<<<<
  * 
  *     # input needs to be sorted in ascending order
@@ -2230,7 +2230,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF_SET(__pyx_v_x, __pyx_t_8);
   __pyx_t_8 = 0;
 
-  /* "diptest/diptest.pyx":76
+  /* "diptest/_diptest.pyx":76
  * 
  *     # input needs to be sorted in ascending order
  *     x.sort()             # <<<<<<<<<<<<<<
@@ -2259,7 +2259,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "diptest/diptest.pyx":78
+  /* "diptest/_diptest.pyx":78
  *     x.sort()
  * 
  *     x_ = x             # <<<<<<<<<<<<<<
@@ -2272,7 +2272,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_9.memview = NULL;
   __pyx_t_9.data = NULL;
 
-  /* "diptest/diptest.pyx":80
+  /* "diptest/_diptest.pyx":80
  *     x_ = x
  * 
  *     diptst(&x_[0], &n, &dip, &lo_hi[0], &ifault, &gcm[0], &lcm[0], &mn[0],             # <<<<<<<<<<<<<<
@@ -2330,7 +2330,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 80; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
-  /* "diptest/diptest.pyx":81
+  /* "diptest/_diptest.pyx":81
  * 
  *     diptst(&x_[0], &n, &dip, &lo_hi[0], &ifault, &gcm[0], &lcm[0], &mn[0],
  *            &mj[0], &min_is_0_, &debug_)             # <<<<<<<<<<<<<<
@@ -2348,7 +2348,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 81; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
-  /* "diptest/diptest.pyx":80
+  /* "diptest/_diptest.pyx":80
  *     x_ = x
  * 
  *     diptst(&x_[0], &n, &dip, &lo_hi[0], &ifault, &gcm[0], &lcm[0], &mn[0],             # <<<<<<<<<<<<<<
@@ -2357,7 +2357,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
  */
   diptst((&(*((double *) ( /* dim=0 */ (__pyx_v_x_.data + __pyx_t_10 * __pyx_v_x_.strides[0]) )))), (&__pyx_v_n), (&__pyx_v_dip), (&(*((int *) ( /* dim=0 */ (__pyx_v_lo_hi.data + __pyx_t_11 * __pyx_v_lo_hi.strides[0]) )))), (&__pyx_v_ifault), (&(*((int *) ( /* dim=0 */ (__pyx_v_gcm.data + __pyx_t_12 * __pyx_v_gcm.strides[0]) )))), (&(*((int *) ( /* dim=0 */ (__pyx_v_lcm.data + __pyx_t_13 * __pyx_v_lcm.strides[0]) )))), (&(*((int *) ( /* dim=0 */ (__pyx_v_mn.data + __pyx_t_14 * __pyx_v_mn.strides[0]) )))), (&(*((int *) ( /* dim=0 */ (__pyx_v_mj.data + __pyx_t_15 * __pyx_v_mj.strides[0]) )))), (&__pyx_v_min_is_0_), (&__pyx_v_debug_));
 
-  /* "diptest/diptest.pyx":83
+  /* "diptest/_diptest.pyx":83
  *            &mj[0], &min_is_0_, &debug_)
  * 
  *     if full_output:             # <<<<<<<<<<<<<<
@@ -2367,7 +2367,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
   __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_v_full_output); if (unlikely(__pyx_t_16 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 83; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (__pyx_t_16) {
 
-    /* "diptest/diptest.pyx":84
+    /* "diptest/_diptest.pyx":84
  * 
  *     if full_output:
  *         res_dict = {             # <<<<<<<<<<<<<<
@@ -2377,7 +2377,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     __pyx_t_8 = PyDict_New(); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_8);
 
-    /* "diptest/diptest.pyx":85
+    /* "diptest/_diptest.pyx":85
  *     if full_output:
  *         res_dict = {
  *             'xs':np.array(x_),             # <<<<<<<<<<<<<<
@@ -2420,7 +2420,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_xs, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":86
+    /* "diptest/_diptest.pyx":86
  *         res_dict = {
  *             'xs':np.array(x_),
  *             'n':n,             # <<<<<<<<<<<<<<
@@ -2432,7 +2432,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_n, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":87
+    /* "diptest/_diptest.pyx":87
  *             'xs':np.array(x_),
  *             'n':n,
  *             'dip':dip,             # <<<<<<<<<<<<<<
@@ -2444,7 +2444,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_dip, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":88
+    /* "diptest/_diptest.pyx":88
  *             'n':n,
  *             'dip':dip,
  *             'lo':lo_hi[0],             # <<<<<<<<<<<<<<
@@ -2466,7 +2466,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_lo, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":89
+    /* "diptest/_diptest.pyx":89
  *             'dip':dip,
  *             'lo':lo_hi[0],
  *             'hi':lo_hi[1],             # <<<<<<<<<<<<<<
@@ -2488,7 +2488,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_hi, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":90
+    /* "diptest/_diptest.pyx":90
  *             'lo':lo_hi[0],
  *             'hi':lo_hi[1],
  *             'xl':x_[lo_hi[0]],             # <<<<<<<<<<<<<<
@@ -2520,7 +2520,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_xl, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":91
+    /* "diptest/_diptest.pyx":91
  *             'hi':lo_hi[1],
  *             'xl':x_[lo_hi[0]],
  *             'xu':x_[lo_hi[1]],             # <<<<<<<<<<<<<<
@@ -2552,7 +2552,7 @@ static PyObject *__pyx_pf_7diptest_7diptest_diptest(CYTHON_UNUSED PyObject *__py
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_xu, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":92
+    /* "diptest/_diptest.pyx":92
  *             'xl':x_[lo_hi[0]],
  *             'xu':x_[lo_hi[1]],
  *             'gcm':np.array(gcm[:lo_hi[2]]),             # <<<<<<<<<<<<<<
@@ -2627,7 +2627,7 @@ __pyx_t_1 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __p
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_gcm, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":93
+    /* "diptest/_diptest.pyx":93
  *             'xu':x_[lo_hi[1]],
  *             'gcm':np.array(gcm[:lo_hi[2]]),
  *             'lcm':np.array(lcm[:lo_hi[3]]),             # <<<<<<<<<<<<<<
@@ -2702,7 +2702,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_lcm, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":94
+    /* "diptest/_diptest.pyx":94
  *             'gcm':np.array(gcm[:lo_hi[2]]),
  *             'lcm':np.array(lcm[:lo_hi[3]]),
  *             'mn':np.array(mn),             # <<<<<<<<<<<<<<
@@ -2745,7 +2745,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_mn, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 84; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "diptest/diptest.pyx":95
+    /* "diptest/_diptest.pyx":95
  *             'lcm':np.array(lcm[:lo_hi[3]]),
  *             'mn':np.array(mn),
  *             'mj':np.array(mj),             # <<<<<<<<<<<<<<
@@ -2790,7 +2790,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __
     __pyx_v_res_dict = ((PyObject*)__pyx_t_8);
     __pyx_t_8 = 0;
 
-    /* "diptest/diptest.pyx":98
+    /* "diptest/_diptest.pyx":98
  *         }
  * 
  *         return dip, res_dict             # <<<<<<<<<<<<<<
@@ -2814,7 +2814,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __
   }
   /*else*/ {
 
-    /* "diptest/diptest.pyx":102
+    /* "diptest/_diptest.pyx":102
  *     else:
  * 
  *         return dip             # <<<<<<<<<<<<<<
@@ -2827,7 +2827,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __
     goto __pyx_L0;
   }
 
-  /* "diptest/diptest.pyx":22
+  /* "diptest/_diptest.pyx":22
  * 
  * 
  * def diptest(x, min_is_0=True, full_output=False, debug=0):             # <<<<<<<<<<<<<<
@@ -2845,7 +2845,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __
   __Pyx_XDECREF(__pyx_t_8);
   __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
   __Pyx_XDECREF(__pyx_t_17);
-  __Pyx_AddTraceback("diptest.diptest.diptest", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("diptest._diptest.diptest", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_x_, 1);
@@ -2861,7 +2861,7 @@ __pyx_t_17 = __pyx_memoryview_fromslice(__pyx_t_7, 1, (PyObject *(*)(char *)) __
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":197
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":197
  *         # experimental exception made for __getbuffer__ and __releasebuffer__
  *         # -- the details of this may change.
  *         def __getbuffer__(ndarray self, Py_buffer* info, int flags):             # <<<<<<<<<<<<<<
@@ -2911,7 +2911,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __Pyx_GIVEREF(__pyx_v_info->obj);
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":203
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":203
  *             # of flags
  * 
  *             if info == NULL: return             # <<<<<<<<<<<<<<
@@ -2924,7 +2924,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     goto __pyx_L0;
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":206
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":206
  * 
  *             cdef int copy_shape, i, ndim
  *             cdef int endian_detector = 1             # <<<<<<<<<<<<<<
@@ -2933,7 +2933,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_endian_detector = 1;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":207
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":207
  *             cdef int copy_shape, i, ndim
  *             cdef int endian_detector = 1
  *             cdef bint little_endian = ((<char*>&endian_detector)[0] != 0)             # <<<<<<<<<<<<<<
@@ -2942,7 +2942,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_little_endian = ((((char *)(&__pyx_v_endian_detector))[0]) != 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":209
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":209
  *             cdef bint little_endian = ((<char*>&endian_detector)[0] != 0)
  * 
  *             ndim = PyArray_NDIM(self)             # <<<<<<<<<<<<<<
@@ -2951,7 +2951,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_ndim = PyArray_NDIM(__pyx_v_self);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":211
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":211
  *             ndim = PyArray_NDIM(self)
  * 
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):             # <<<<<<<<<<<<<<
@@ -2961,7 +2961,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_t_1 = (((sizeof(npy_intp)) != (sizeof(Py_ssize_t))) != 0);
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":212
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":212
  * 
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):
  *                 copy_shape = 1             # <<<<<<<<<<<<<<
@@ -2973,7 +2973,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   /*else*/ {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":214
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":214
  *                 copy_shape = 1
  *             else:
  *                 copy_shape = 0             # <<<<<<<<<<<<<<
@@ -2984,7 +2984,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   __pyx_L4:;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":216
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":216
  *                 copy_shape = 0
  * 
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -2998,7 +2998,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     goto __pyx_L6_bool_binop_done;
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":217
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":217
  * 
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_C_CONTIGUOUS)):             # <<<<<<<<<<<<<<
@@ -3010,7 +3010,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_L6_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":218
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":218
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_C_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not C contiguous")             # <<<<<<<<<<<<<<
@@ -3024,7 +3024,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     {__pyx_filename = __pyx_f[1]; __pyx_lineno = 218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":220
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":220
  *                 raise ValueError(u"ndarray is not C contiguous")
  * 
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)             # <<<<<<<<<<<<<<
@@ -3038,7 +3038,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     goto __pyx_L9_bool_binop_done;
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":221
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":221
  * 
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_F_CONTIGUOUS)):             # <<<<<<<<<<<<<<
@@ -3050,7 +3050,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_L9_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":222
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":222
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_F_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not Fortran contiguous")             # <<<<<<<<<<<<<<
@@ -3064,7 +3064,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     {__pyx_filename = __pyx_f[1]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":224
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":224
  *                 raise ValueError(u"ndarray is not Fortran contiguous")
  * 
  *             info.buf = PyArray_DATA(self)             # <<<<<<<<<<<<<<
@@ -3073,7 +3073,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->buf = PyArray_DATA(__pyx_v_self);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":225
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":225
  * 
  *             info.buf = PyArray_DATA(self)
  *             info.ndim = ndim             # <<<<<<<<<<<<<<
@@ -3082,7 +3082,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->ndim = __pyx_v_ndim;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":226
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":226
  *             info.buf = PyArray_DATA(self)
  *             info.ndim = ndim
  *             if copy_shape:             # <<<<<<<<<<<<<<
@@ -3092,7 +3092,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_t_1 = (__pyx_v_copy_shape != 0);
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":229
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":229
  *                 # Allocate new buffer for strides and shape info.
  *                 # This is allocated as one block, strides first.
  *                 info.strides = <Py_ssize_t*>stdlib.malloc(sizeof(Py_ssize_t) * <size_t>ndim * 2)             # <<<<<<<<<<<<<<
@@ -3101,7 +3101,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->strides = ((Py_ssize_t *)malloc((((sizeof(Py_ssize_t)) * ((size_t)__pyx_v_ndim)) * 2)));
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":230
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":230
  *                 # This is allocated as one block, strides first.
  *                 info.strides = <Py_ssize_t*>stdlib.malloc(sizeof(Py_ssize_t) * <size_t>ndim * 2)
  *                 info.shape = info.strides + ndim             # <<<<<<<<<<<<<<
@@ -3110,7 +3110,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->shape = (__pyx_v_info->strides + __pyx_v_ndim);
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":231
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":231
  *                 info.strides = <Py_ssize_t*>stdlib.malloc(sizeof(Py_ssize_t) * <size_t>ndim * 2)
  *                 info.shape = info.strides + ndim
  *                 for i in range(ndim):             # <<<<<<<<<<<<<<
@@ -3121,7 +3121,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
       __pyx_v_i = __pyx_t_5;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":232
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":232
  *                 info.shape = info.strides + ndim
  *                 for i in range(ndim):
  *                     info.strides[i] = PyArray_STRIDES(self)[i]             # <<<<<<<<<<<<<<
@@ -3130,7 +3130,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
       (__pyx_v_info->strides[__pyx_v_i]) = (PyArray_STRIDES(__pyx_v_self)[__pyx_v_i]);
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":233
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":233
  *                 for i in range(ndim):
  *                     info.strides[i] = PyArray_STRIDES(self)[i]
  *                     info.shape[i] = PyArray_DIMS(self)[i]             # <<<<<<<<<<<<<<
@@ -3143,7 +3143,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   /*else*/ {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":235
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":235
  *                     info.shape[i] = PyArray_DIMS(self)[i]
  *             else:
  *                 info.strides = <Py_ssize_t*>PyArray_STRIDES(self)             # <<<<<<<<<<<<<<
@@ -3152,7 +3152,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->strides = ((Py_ssize_t *)PyArray_STRIDES(__pyx_v_self));
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":236
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":236
  *             else:
  *                 info.strides = <Py_ssize_t*>PyArray_STRIDES(self)
  *                 info.shape = <Py_ssize_t*>PyArray_DIMS(self)             # <<<<<<<<<<<<<<
@@ -3163,7 +3163,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   __pyx_L11:;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":237
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":237
  *                 info.strides = <Py_ssize_t*>PyArray_STRIDES(self)
  *                 info.shape = <Py_ssize_t*>PyArray_DIMS(self)
  *             info.suboffsets = NULL             # <<<<<<<<<<<<<<
@@ -3172,7 +3172,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->suboffsets = NULL;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":238
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":238
  *                 info.shape = <Py_ssize_t*>PyArray_DIMS(self)
  *             info.suboffsets = NULL
  *             info.itemsize = PyArray_ITEMSIZE(self)             # <<<<<<<<<<<<<<
@@ -3181,7 +3181,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->itemsize = PyArray_ITEMSIZE(__pyx_v_self);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":239
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":239
  *             info.suboffsets = NULL
  *             info.itemsize = PyArray_ITEMSIZE(self)
  *             info.readonly = not PyArray_ISWRITEABLE(self)             # <<<<<<<<<<<<<<
@@ -3190,7 +3190,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_info->readonly = (!(PyArray_ISWRITEABLE(__pyx_v_self) != 0));
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":242
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":242
  * 
  *             cdef int t
  *             cdef char* f = NULL             # <<<<<<<<<<<<<<
@@ -3199,7 +3199,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_f = NULL;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":243
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":243
  *             cdef int t
  *             cdef char* f = NULL
  *             cdef dtype descr = self.descr             # <<<<<<<<<<<<<<
@@ -3211,7 +3211,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_v_descr = ((PyArray_Descr *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":247
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":247
  *             cdef int offset
  * 
  *             cdef bint hasfields = PyDataType_HASFIELDS(descr)             # <<<<<<<<<<<<<<
@@ -3220,7 +3220,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
   __pyx_v_hasfields = PyDataType_HASFIELDS(__pyx_v_descr);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":249
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":249
  *             cdef bint hasfields = PyDataType_HASFIELDS(descr)
  * 
  *             if not hasfields and not copy_shape:             # <<<<<<<<<<<<<<
@@ -3238,7 +3238,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_L15_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":251
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":251
  *             if not hasfields and not copy_shape:
  *                 # do not call releasebuffer
  *                 info.obj = None             # <<<<<<<<<<<<<<
@@ -3254,7 +3254,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   /*else*/ {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":254
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":254
  *             else:
  *                 # need to call releasebuffer
  *                 info.obj = self             # <<<<<<<<<<<<<<
@@ -3269,7 +3269,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   __pyx_L14:;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":256
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":256
  *                 info.obj = self
  * 
  *             if not hasfields:             # <<<<<<<<<<<<<<
@@ -3279,7 +3279,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   __pyx_t_1 = ((!(__pyx_v_hasfields != 0)) != 0);
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":257
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":257
  * 
  *             if not hasfields:
  *                 t = descr.type_num             # <<<<<<<<<<<<<<
@@ -3289,7 +3289,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_t_4 = __pyx_v_descr->type_num;
     __pyx_v_t = __pyx_t_4;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":258
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":258
  *             if not hasfields:
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -3309,7 +3309,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     }
     __pyx_L20_next_or:;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":259
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":259
  *                 t = descr.type_num
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):             # <<<<<<<<<<<<<<
@@ -3327,7 +3327,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_L19_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":260
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":260
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):
  *                     raise ValueError(u"Non-native byte order not supported")             # <<<<<<<<<<<<<<
@@ -3341,7 +3341,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       {__pyx_filename = __pyx_f[1]; __pyx_lineno = 260; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":277
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":277
  *                 elif t == NPY_CDOUBLE:     f = "Zd"
  *                 elif t == NPY_CLONGDOUBLE: f = "Zg"
  *                 elif t == NPY_OBJECT:      f = "O"             # <<<<<<<<<<<<<<
@@ -3350,7 +3350,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     switch (__pyx_v_t) {
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":261
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":261
  *                     (descr.byteorder == c'<' and not little_endian)):
  *                     raise ValueError(u"Non-native byte order not supported")
  *                 if   t == NPY_BYTE:        f = "b"             # <<<<<<<<<<<<<<
@@ -3361,7 +3361,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_b;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":262
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":262
  *                     raise ValueError(u"Non-native byte order not supported")
  *                 if   t == NPY_BYTE:        f = "b"
  *                 elif t == NPY_UBYTE:       f = "B"             # <<<<<<<<<<<<<<
@@ -3372,7 +3372,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_B;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":263
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":263
  *                 if   t == NPY_BYTE:        f = "b"
  *                 elif t == NPY_UBYTE:       f = "B"
  *                 elif t == NPY_SHORT:       f = "h"             # <<<<<<<<<<<<<<
@@ -3383,7 +3383,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_h;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":264
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":264
  *                 elif t == NPY_UBYTE:       f = "B"
  *                 elif t == NPY_SHORT:       f = "h"
  *                 elif t == NPY_USHORT:      f = "H"             # <<<<<<<<<<<<<<
@@ -3394,7 +3394,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_H;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":265
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":265
  *                 elif t == NPY_SHORT:       f = "h"
  *                 elif t == NPY_USHORT:      f = "H"
  *                 elif t == NPY_INT:         f = "i"             # <<<<<<<<<<<<<<
@@ -3405,7 +3405,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_i;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":266
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":266
  *                 elif t == NPY_USHORT:      f = "H"
  *                 elif t == NPY_INT:         f = "i"
  *                 elif t == NPY_UINT:        f = "I"             # <<<<<<<<<<<<<<
@@ -3416,7 +3416,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_I;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":267
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":267
  *                 elif t == NPY_INT:         f = "i"
  *                 elif t == NPY_UINT:        f = "I"
  *                 elif t == NPY_LONG:        f = "l"             # <<<<<<<<<<<<<<
@@ -3427,7 +3427,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_l;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":268
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":268
  *                 elif t == NPY_UINT:        f = "I"
  *                 elif t == NPY_LONG:        f = "l"
  *                 elif t == NPY_ULONG:       f = "L"             # <<<<<<<<<<<<<<
@@ -3438,7 +3438,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_L;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":269
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":269
  *                 elif t == NPY_LONG:        f = "l"
  *                 elif t == NPY_ULONG:       f = "L"
  *                 elif t == NPY_LONGLONG:    f = "q"             # <<<<<<<<<<<<<<
@@ -3449,7 +3449,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_q;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":270
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":270
  *                 elif t == NPY_ULONG:       f = "L"
  *                 elif t == NPY_LONGLONG:    f = "q"
  *                 elif t == NPY_ULONGLONG:   f = "Q"             # <<<<<<<<<<<<<<
@@ -3460,7 +3460,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_Q;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":271
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":271
  *                 elif t == NPY_LONGLONG:    f = "q"
  *                 elif t == NPY_ULONGLONG:   f = "Q"
  *                 elif t == NPY_FLOAT:       f = "f"             # <<<<<<<<<<<<<<
@@ -3471,7 +3471,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_f;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":272
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":272
  *                 elif t == NPY_ULONGLONG:   f = "Q"
  *                 elif t == NPY_FLOAT:       f = "f"
  *                 elif t == NPY_DOUBLE:      f = "d"             # <<<<<<<<<<<<<<
@@ -3482,7 +3482,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_d;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":273
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":273
  *                 elif t == NPY_FLOAT:       f = "f"
  *                 elif t == NPY_DOUBLE:      f = "d"
  *                 elif t == NPY_LONGDOUBLE:  f = "g"             # <<<<<<<<<<<<<<
@@ -3493,7 +3493,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_g;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":274
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":274
  *                 elif t == NPY_DOUBLE:      f = "d"
  *                 elif t == NPY_LONGDOUBLE:  f = "g"
  *                 elif t == NPY_CFLOAT:      f = "Zf"             # <<<<<<<<<<<<<<
@@ -3504,7 +3504,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_Zf;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":275
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":275
  *                 elif t == NPY_LONGDOUBLE:  f = "g"
  *                 elif t == NPY_CFLOAT:      f = "Zf"
  *                 elif t == NPY_CDOUBLE:     f = "Zd"             # <<<<<<<<<<<<<<
@@ -3515,7 +3515,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_Zd;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":276
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":276
  *                 elif t == NPY_CFLOAT:      f = "Zf"
  *                 elif t == NPY_CDOUBLE:     f = "Zd"
  *                 elif t == NPY_CLONGDOUBLE: f = "Zg"             # <<<<<<<<<<<<<<
@@ -3526,7 +3526,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       __pyx_v_f = __pyx_k_Zg;
       break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":277
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":277
  *                 elif t == NPY_CDOUBLE:     f = "Zd"
  *                 elif t == NPY_CLONGDOUBLE: f = "Zg"
  *                 elif t == NPY_OBJECT:      f = "O"             # <<<<<<<<<<<<<<
@@ -3538,7 +3538,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
       default:
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":279
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":279
  *                 elif t == NPY_OBJECT:      f = "O"
  *                 else:
  *                     raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)             # <<<<<<<<<<<<<<
@@ -3564,7 +3564,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
       break;
     }
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":280
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":280
  *                 else:
  *                     raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)
  *                 info.format = f             # <<<<<<<<<<<<<<
@@ -3573,7 +3573,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->format = __pyx_v_f;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":281
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":281
  *                     raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)
  *                 info.format = f
  *                 return             # <<<<<<<<<<<<<<
@@ -3585,7 +3585,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   }
   /*else*/ {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":283
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":283
  *                 return
  *             else:
  *                 info.format = <char*>stdlib.malloc(_buffer_format_string_len)             # <<<<<<<<<<<<<<
@@ -3594,7 +3594,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_info->format = ((char *)malloc(255));
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":284
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":284
  *             else:
  *                 info.format = <char*>stdlib.malloc(_buffer_format_string_len)
  *                 info.format[0] = c'^' # Native data types, manual alignment             # <<<<<<<<<<<<<<
@@ -3603,7 +3603,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     (__pyx_v_info->format[0]) = '^';
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":285
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":285
  *                 info.format = <char*>stdlib.malloc(_buffer_format_string_len)
  *                 info.format[0] = c'^' # Native data types, manual alignment
  *                 offset = 0             # <<<<<<<<<<<<<<
@@ -3612,7 +3612,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
  */
     __pyx_v_offset = 0;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":286
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":286
  *                 info.format[0] = c'^' # Native data types, manual alignment
  *                 offset = 0
  *                 f = _util_dtypestring(descr, info.format + 1,             # <<<<<<<<<<<<<<
@@ -3622,7 +3622,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     __pyx_t_7 = __pyx_f_5numpy__util_dtypestring(__pyx_v_descr, (__pyx_v_info->format + 1), (__pyx_v_info->format + 255), (&__pyx_v_offset)); if (unlikely(__pyx_t_7 == NULL)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 286; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_f = __pyx_t_7;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":289
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":289
  *                                       info.format + _buffer_format_string_len,
  *                                       &offset)
  *                 f[0] = c'\0' # Terminate format string             # <<<<<<<<<<<<<<
@@ -3632,7 +3632,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
     (__pyx_v_f[0]) = '\x00';
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":197
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":197
  *         # experimental exception made for __getbuffer__ and __releasebuffer__
  *         # -- the details of this may change.
  *         def __getbuffer__(ndarray self, Py_buffer* info, int flags):             # <<<<<<<<<<<<<<
@@ -3664,7 +3664,7 @@ static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, P
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":291
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":291
  *                 f[0] = c'\0' # Terminate format string
  * 
  *         def __releasebuffer__(ndarray self, Py_buffer* info):             # <<<<<<<<<<<<<<
@@ -3688,7 +3688,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__releasebuffer__", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":292
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":292
  * 
  *         def __releasebuffer__(ndarray self, Py_buffer* info):
  *             if PyArray_HASFIELDS(self):             # <<<<<<<<<<<<<<
@@ -3698,7 +3698,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   __pyx_t_1 = (PyArray_HASFIELDS(__pyx_v_self) != 0);
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":293
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":293
  *         def __releasebuffer__(ndarray self, Py_buffer* info):
  *             if PyArray_HASFIELDS(self):
  *                 stdlib.free(info.format)             # <<<<<<<<<<<<<<
@@ -3710,7 +3710,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   }
   __pyx_L3:;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":294
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":294
  *             if PyArray_HASFIELDS(self):
  *                 stdlib.free(info.format)
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):             # <<<<<<<<<<<<<<
@@ -3720,7 +3720,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   __pyx_t_1 = (((sizeof(npy_intp)) != (sizeof(Py_ssize_t))) != 0);
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":295
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":295
  *                 stdlib.free(info.format)
  *             if sizeof(npy_intp) != sizeof(Py_ssize_t):
  *                 stdlib.free(info.strides)             # <<<<<<<<<<<<<<
@@ -3732,7 +3732,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   }
   __pyx_L4:;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":291
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":291
  *                 f[0] = c'\0' # Terminate format string
  * 
  *         def __releasebuffer__(ndarray self, Py_buffer* info):             # <<<<<<<<<<<<<<
@@ -3744,7 +3744,7 @@ static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_s
   __Pyx_RefNannyFinishContext();
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":771
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":771
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -3761,7 +3761,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":772
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":772
  * 
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
@@ -3775,7 +3775,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":771
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":771
  * ctypedef npy_cdouble     complex_t
  * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
@@ -3794,7 +3794,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":774
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":774
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -3811,7 +3811,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":775
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":775
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
@@ -3825,7 +3825,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":774
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":774
  *     return PyArray_MultiIterNew(1, <void*>a)
  * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
@@ -3844,7 +3844,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":777
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":777
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -3861,7 +3861,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":778
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":778
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
@@ -3875,7 +3875,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":777
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":777
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
  * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
@@ -3894,7 +3894,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":780
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":780
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -3911,7 +3911,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":781
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":781
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
@@ -3925,7 +3925,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":780
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":780
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
  * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
@@ -3944,7 +3944,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":783
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":783
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -3961,7 +3961,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":784
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":784
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
@@ -3975,7 +3975,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":783
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":783
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
  * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
@@ -3994,7 +3994,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":786
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":786
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline char* _util_dtypestring(dtype descr, char* f, char* end, int* offset) except NULL:             # <<<<<<<<<<<<<<
@@ -4026,7 +4026,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_util_dtypestring", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":793
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":793
  *     cdef int delta_offset
  *     cdef tuple i
  *     cdef int endian_detector = 1             # <<<<<<<<<<<<<<
@@ -4035,7 +4035,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
   __pyx_v_endian_detector = 1;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":794
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":794
  *     cdef tuple i
  *     cdef int endian_detector = 1
  *     cdef bint little_endian = ((<char*>&endian_detector)[0] != 0)             # <<<<<<<<<<<<<<
@@ -4044,7 +4044,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
   __pyx_v_little_endian = ((((char *)(&__pyx_v_endian_detector))[0]) != 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":797
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":797
  *     cdef tuple fields
  * 
  *     for childname in descr.names:             # <<<<<<<<<<<<<<
@@ -4066,7 +4066,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __Pyx_XDECREF_SET(__pyx_v_childname, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":798
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":798
  * 
  *     for childname in descr.names:
  *         fields = descr.fields[childname]             # <<<<<<<<<<<<<<
@@ -4083,7 +4083,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __Pyx_XDECREF_SET(__pyx_v_fields, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":799
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":799
  *     for childname in descr.names:
  *         fields = descr.fields[childname]
  *         child, new_offset = fields             # <<<<<<<<<<<<<<
@@ -4122,7 +4122,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __Pyx_XDECREF_SET(__pyx_v_new_offset, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":801
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":801
  *         child, new_offset = fields
  * 
  *         if (end - f) - <int>(new_offset - offset[0]) < 15:             # <<<<<<<<<<<<<<
@@ -4139,7 +4139,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_t_6 = ((((__pyx_v_end - __pyx_v_f) - ((int)__pyx_t_5)) < 15) != 0);
     if (__pyx_t_6) {
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":802
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":802
  * 
  *         if (end - f) - <int>(new_offset - offset[0]) < 15:
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")             # <<<<<<<<<<<<<<
@@ -4153,7 +4153,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       {__pyx_filename = __pyx_f[1]; __pyx_lineno = 802; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":804
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":804
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")
  * 
  *         if ((child.byteorder == c'>' and little_endian) or             # <<<<<<<<<<<<<<
@@ -4173,7 +4173,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     }
     __pyx_L8_next_or:;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":805
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":805
  * 
  *         if ((child.byteorder == c'>' and little_endian) or
  *             (child.byteorder == c'<' and not little_endian)):             # <<<<<<<<<<<<<<
@@ -4191,7 +4191,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_6) {
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":806
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":806
  *         if ((child.byteorder == c'>' and little_endian) or
  *             (child.byteorder == c'<' and not little_endian)):
  *             raise ValueError(u"Non-native byte order not supported")             # <<<<<<<<<<<<<<
@@ -4205,7 +4205,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       {__pyx_filename = __pyx_f[1]; __pyx_lineno = 806; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":816
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":816
  * 
  *         # Output padding bytes
  *         while offset[0] < new_offset:             # <<<<<<<<<<<<<<
@@ -4221,7 +4221,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (!__pyx_t_6) break;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":817
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":817
  *         # Output padding bytes
  *         while offset[0] < new_offset:
  *             f[0] = 120 # "x"; pad byte             # <<<<<<<<<<<<<<
@@ -4230,7 +4230,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
       (__pyx_v_f[0]) = 120;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":818
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":818
  *         while offset[0] < new_offset:
  *             f[0] = 120 # "x"; pad byte
  *             f += 1             # <<<<<<<<<<<<<<
@@ -4239,7 +4239,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
  */
       __pyx_v_f = (__pyx_v_f + 1);
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":819
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":819
  *             f[0] = 120 # "x"; pad byte
  *             f += 1
  *             offset[0] += 1             # <<<<<<<<<<<<<<
@@ -4250,7 +4250,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       (__pyx_v_offset[__pyx_t_8]) = ((__pyx_v_offset[__pyx_t_8]) + 1);
     }
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":821
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":821
  *             offset[0] += 1
  * 
  *         offset[0] += child.itemsize             # <<<<<<<<<<<<<<
@@ -4260,7 +4260,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_t_8 = 0;
     (__pyx_v_offset[__pyx_t_8]) = ((__pyx_v_offset[__pyx_t_8]) + __pyx_v_child->elsize);
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":823
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":823
  *         offset[0] += child.itemsize
  * 
  *         if not PyDataType_HASFIELDS(child):             # <<<<<<<<<<<<<<
@@ -4270,7 +4270,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     __pyx_t_6 = ((!(PyDataType_HASFIELDS(__pyx_v_child) != 0)) != 0);
     if (__pyx_t_6) {
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":824
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":824
  * 
  *         if not PyDataType_HASFIELDS(child):
  *             t = child.type_num             # <<<<<<<<<<<<<<
@@ -4282,7 +4282,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":825
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":825
  *         if not PyDataType_HASFIELDS(child):
  *             t = child.type_num
  *             if end - f < 5:             # <<<<<<<<<<<<<<
@@ -4292,7 +4292,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       __pyx_t_6 = (((__pyx_v_end - __pyx_v_f) < 5) != 0);
       if (__pyx_t_6) {
 
-        /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":826
+        /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":826
  *             t = child.type_num
  *             if end - f < 5:
  *                 raise RuntimeError(u"Format string allocated too short.")             # <<<<<<<<<<<<<<
@@ -4306,7 +4306,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         {__pyx_filename = __pyx_f[1]; __pyx_lineno = 826; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":829
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":829
  * 
  *             # Until ticket #99 is fixed, use integers to avoid warnings
  *             if   t == NPY_BYTE:        f[0] =  98 #"b"             # <<<<<<<<<<<<<<
@@ -4324,7 +4324,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":830
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":830
  *             # Until ticket #99 is fixed, use integers to avoid warnings
  *             if   t == NPY_BYTE:        f[0] =  98 #"b"
  *             elif t == NPY_UBYTE:       f[0] =  66 #"B"             # <<<<<<<<<<<<<<
@@ -4342,7 +4342,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":831
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":831
  *             if   t == NPY_BYTE:        f[0] =  98 #"b"
  *             elif t == NPY_UBYTE:       f[0] =  66 #"B"
  *             elif t == NPY_SHORT:       f[0] = 104 #"h"             # <<<<<<<<<<<<<<
@@ -4360,7 +4360,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":832
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":832
  *             elif t == NPY_UBYTE:       f[0] =  66 #"B"
  *             elif t == NPY_SHORT:       f[0] = 104 #"h"
  *             elif t == NPY_USHORT:      f[0] =  72 #"H"             # <<<<<<<<<<<<<<
@@ -4378,7 +4378,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":833
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":833
  *             elif t == NPY_SHORT:       f[0] = 104 #"h"
  *             elif t == NPY_USHORT:      f[0] =  72 #"H"
  *             elif t == NPY_INT:         f[0] = 105 #"i"             # <<<<<<<<<<<<<<
@@ -4396,7 +4396,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":834
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":834
  *             elif t == NPY_USHORT:      f[0] =  72 #"H"
  *             elif t == NPY_INT:         f[0] = 105 #"i"
  *             elif t == NPY_UINT:        f[0] =  73 #"I"             # <<<<<<<<<<<<<<
@@ -4414,7 +4414,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":835
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":835
  *             elif t == NPY_INT:         f[0] = 105 #"i"
  *             elif t == NPY_UINT:        f[0] =  73 #"I"
  *             elif t == NPY_LONG:        f[0] = 108 #"l"             # <<<<<<<<<<<<<<
@@ -4432,7 +4432,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":836
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":836
  *             elif t == NPY_UINT:        f[0] =  73 #"I"
  *             elif t == NPY_LONG:        f[0] = 108 #"l"
  *             elif t == NPY_ULONG:       f[0] = 76  #"L"             # <<<<<<<<<<<<<<
@@ -4450,7 +4450,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":837
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":837
  *             elif t == NPY_LONG:        f[0] = 108 #"l"
  *             elif t == NPY_ULONG:       f[0] = 76  #"L"
  *             elif t == NPY_LONGLONG:    f[0] = 113 #"q"             # <<<<<<<<<<<<<<
@@ -4468,7 +4468,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":838
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":838
  *             elif t == NPY_ULONG:       f[0] = 76  #"L"
  *             elif t == NPY_LONGLONG:    f[0] = 113 #"q"
  *             elif t == NPY_ULONGLONG:   f[0] = 81  #"Q"             # <<<<<<<<<<<<<<
@@ -4486,7 +4486,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":839
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":839
  *             elif t == NPY_LONGLONG:    f[0] = 113 #"q"
  *             elif t == NPY_ULONGLONG:   f[0] = 81  #"Q"
  *             elif t == NPY_FLOAT:       f[0] = 102 #"f"             # <<<<<<<<<<<<<<
@@ -4504,7 +4504,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":840
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":840
  *             elif t == NPY_ULONGLONG:   f[0] = 81  #"Q"
  *             elif t == NPY_FLOAT:       f[0] = 102 #"f"
  *             elif t == NPY_DOUBLE:      f[0] = 100 #"d"             # <<<<<<<<<<<<<<
@@ -4522,7 +4522,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":841
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":841
  *             elif t == NPY_FLOAT:       f[0] = 102 #"f"
  *             elif t == NPY_DOUBLE:      f[0] = 100 #"d"
  *             elif t == NPY_LONGDOUBLE:  f[0] = 103 #"g"             # <<<<<<<<<<<<<<
@@ -4540,7 +4540,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":842
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":842
  *             elif t == NPY_DOUBLE:      f[0] = 100 #"d"
  *             elif t == NPY_LONGDOUBLE:  f[0] = 103 #"g"
  *             elif t == NPY_CFLOAT:      f[0] = 90; f[1] = 102; f += 1 # Zf             # <<<<<<<<<<<<<<
@@ -4560,7 +4560,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":843
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":843
  *             elif t == NPY_LONGDOUBLE:  f[0] = 103 #"g"
  *             elif t == NPY_CFLOAT:      f[0] = 90; f[1] = 102; f += 1 # Zf
  *             elif t == NPY_CDOUBLE:     f[0] = 90; f[1] = 100; f += 1 # Zd             # <<<<<<<<<<<<<<
@@ -4580,7 +4580,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":844
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":844
  *             elif t == NPY_CFLOAT:      f[0] = 90; f[1] = 102; f += 1 # Zf
  *             elif t == NPY_CDOUBLE:     f[0] = 90; f[1] = 100; f += 1 # Zd
  *             elif t == NPY_CLONGDOUBLE: f[0] = 90; f[1] = 103; f += 1 # Zg             # <<<<<<<<<<<<<<
@@ -4600,7 +4600,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
         goto __pyx_L15;
       }
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":845
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":845
  *             elif t == NPY_CDOUBLE:     f[0] = 90; f[1] = 100; f += 1 # Zd
  *             elif t == NPY_CLONGDOUBLE: f[0] = 90; f[1] = 103; f += 1 # Zg
  *             elif t == NPY_OBJECT:      f[0] = 79 #"O"             # <<<<<<<<<<<<<<
@@ -4619,7 +4619,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       }
       /*else*/ {
 
-        /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":847
+        /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":847
  *             elif t == NPY_OBJECT:      f[0] = 79 #"O"
  *             else:
  *                 raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)             # <<<<<<<<<<<<<<
@@ -4642,7 +4642,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
       }
       __pyx_L15:;
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":848
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":848
  *             else:
  *                 raise ValueError(u"unknown dtype code in numpy.pxd (%d)" % t)
  *             f += 1             # <<<<<<<<<<<<<<
@@ -4654,7 +4654,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     }
     /*else*/ {
 
-      /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":852
+      /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":852
  *             # Cython ignores struct boundary information ("T{...}"),
  *             # so don't output it
  *             f = _util_dtypestring(child, f, end, offset)             # <<<<<<<<<<<<<<
@@ -4666,7 +4666,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
     }
     __pyx_L13:;
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":797
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":797
  *     cdef tuple fields
  * 
  *     for childname in descr.names:             # <<<<<<<<<<<<<<
@@ -4676,7 +4676,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":853
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":853
  *             # so don't output it
  *             f = _util_dtypestring(child, f, end, offset)
  *     return f             # <<<<<<<<<<<<<<
@@ -4686,7 +4686,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   __pyx_r = __pyx_v_f;
   goto __pyx_L0;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":786
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":786
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
  * 
  * cdef inline char* _util_dtypestring(dtype descr, char* f, char* end, int* offset) except NULL:             # <<<<<<<<<<<<<<
@@ -4711,7 +4711,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *__pyx
   return __pyx_r;
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":969
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":969
  * 
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -4726,7 +4726,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("set_array_base", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":971
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":971
  * cdef inline void set_array_base(ndarray arr, object base):
  *      cdef PyObject* baseptr
  *      if base is None:             # <<<<<<<<<<<<<<
@@ -4737,7 +4737,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":972
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":972
  *      cdef PyObject* baseptr
  *      if base is None:
  *          baseptr = NULL             # <<<<<<<<<<<<<<
@@ -4749,7 +4749,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   }
   /*else*/ {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":974
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":974
  *          baseptr = NULL
  *      else:
  *          Py_INCREF(base) # important to do this before decref below!             # <<<<<<<<<<<<<<
@@ -4758,7 +4758,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
     Py_INCREF(__pyx_v_base);
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":975
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":975
  *      else:
  *          Py_INCREF(base) # important to do this before decref below!
  *          baseptr = <PyObject*>base             # <<<<<<<<<<<<<<
@@ -4769,7 +4769,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   }
   __pyx_L3:;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":976
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":976
  *          Py_INCREF(base) # important to do this before decref below!
  *          baseptr = <PyObject*>base
  *      Py_XDECREF(arr.base)             # <<<<<<<<<<<<<<
@@ -4778,7 +4778,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   Py_XDECREF(__pyx_v_arr->base);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":977
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":977
  *          baseptr = <PyObject*>base
  *      Py_XDECREF(arr.base)
  *      arr.base = baseptr             # <<<<<<<<<<<<<<
@@ -4787,7 +4787,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  */
   __pyx_v_arr->base = __pyx_v_baseptr;
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":969
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":969
  * 
  * 
  * cdef inline void set_array_base(ndarray arr, object base):             # <<<<<<<<<<<<<<
@@ -4799,7 +4799,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   __Pyx_RefNannyFinishContext();
 }
 
-/* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":979
+/* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":979
  *      arr.base = baseptr
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -4813,7 +4813,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("get_array_base", 0);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":980
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":980
  * 
  * cdef inline object get_array_base(ndarray arr):
  *     if arr.base is NULL:             # <<<<<<<<<<<<<<
@@ -4823,7 +4823,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __pyx_t_1 = ((__pyx_v_arr->base == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":981
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":981
  * cdef inline object get_array_base(ndarray arr):
  *     if arr.base is NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -4837,7 +4837,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   }
   /*else*/ {
 
-    /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":983
+    /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":983
  *         return None
  *     else:
  *         return <object>arr.base             # <<<<<<<<<<<<<<
@@ -4848,7 +4848,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
     goto __pyx_L0;
   }
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":979
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":979
  *      arr.base = baseptr
  * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
@@ -15611,7 +15611,7 @@ static PyBufferProcs __pyx_tp_as_buffer_array = {
 
 static PyTypeObject __pyx_type___pyx_array = {
   PyVarObject_HEAD_INIT(0, 0)
-  "diptest.diptest.array", /*tp_name*/
+  "diptest._diptest.array", /*tp_name*/
   sizeof(struct __pyx_array_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_array, /*tp_dealloc*/
@@ -15716,7 +15716,7 @@ static PyMethodDef __pyx_methods_Enum[] = {
 
 static PyTypeObject __pyx_type___pyx_MemviewEnum = {
   PyVarObject_HEAD_INIT(0, 0)
-  "diptest.diptest.Enum", /*tp_name*/
+  "diptest._diptest.Enum", /*tp_name*/
   sizeof(struct __pyx_MemviewEnum_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_Enum, /*tp_dealloc*/
@@ -15962,7 +15962,7 @@ static PyBufferProcs __pyx_tp_as_buffer_memoryview = {
 
 static PyTypeObject __pyx_type___pyx_memoryview = {
   PyVarObject_HEAD_INIT(0, 0)
-  "diptest.diptest.memoryview", /*tp_name*/
+  "diptest._diptest.memoryview", /*tp_name*/
   sizeof(struct __pyx_memoryview_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_memoryview, /*tp_dealloc*/
@@ -16086,7 +16086,7 @@ static struct PyGetSetDef __pyx_getsets__memoryviewslice[] = {
 
 static PyTypeObject __pyx_type___pyx_memoryviewslice = {
   PyVarObject_HEAD_INIT(0, 0)
-  "diptest.diptest._memoryviewslice", /*tp_name*/
+  "diptest._diptest._memoryviewslice", /*tp_name*/
   sizeof(struct __pyx_memoryviewslice_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc__memoryviewslice, /*tp_dealloc*/
@@ -16160,7 +16160,7 @@ static struct PyModuleDef __pyx_moduledef = {
   #else
     PyModuleDef_HEAD_INIT,
   #endif
-    "diptest",
+    "_diptest",
     0, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
@@ -16206,7 +16206,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_debug_2, __pyx_k_debug_2, sizeof(__pyx_k_debug_2), 0, 0, 1, 1},
   {&__pyx_n_s_dip, __pyx_k_dip, sizeof(__pyx_k_dip), 0, 0, 1, 1},
   {&__pyx_n_s_diptest, __pyx_k_diptest, sizeof(__pyx_k_diptest), 0, 0, 1, 1},
-  {&__pyx_n_s_diptest_diptest, __pyx_k_diptest_diptest, sizeof(__pyx_k_diptest_diptest), 0, 0, 1, 1},
+  {&__pyx_n_s_diptest__diptest, __pyx_k_diptest__diptest, sizeof(__pyx_k_diptest__diptest), 0, 0, 1, 1},
   {&__pyx_n_s_double, __pyx_k_double, sizeof(__pyx_k_double), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
   {&__pyx_n_s_dtype_is_object, __pyx_k_dtype_is_object, sizeof(__pyx_k_dtype_is_object), 0, 0, 1, 1},
@@ -16294,7 +16294,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "diptest/diptest.pyx":62
+  /* "diptest/_diptest.pyx":62
  * 
  *         double dip = np.nan
  *         int[:] lo_hi = np.empty(4, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -16305,7 +16305,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":218
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":218
  *             if ((flags & pybuf.PyBUF_C_CONTIGUOUS == pybuf.PyBUF_C_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_C_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not C contiguous")             # <<<<<<<<<<<<<<
@@ -16316,7 +16316,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":222
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":222
  *             if ((flags & pybuf.PyBUF_F_CONTIGUOUS == pybuf.PyBUF_F_CONTIGUOUS)
  *                 and not PyArray_CHKFLAGS(self, NPY_F_CONTIGUOUS)):
  *                 raise ValueError(u"ndarray is not Fortran contiguous")             # <<<<<<<<<<<<<<
@@ -16327,7 +16327,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":260
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":260
  *                 if ((descr.byteorder == c'>' and little_endian) or
  *                     (descr.byteorder == c'<' and not little_endian)):
  *                     raise ValueError(u"Non-native byte order not supported")             # <<<<<<<<<<<<<<
@@ -16338,7 +16338,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":802
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":802
  * 
  *         if (end - f) - <int>(new_offset - offset[0]) < 15:
  *             raise RuntimeError(u"Format string allocated too short, see comment in numpy.pxd")             # <<<<<<<<<<<<<<
@@ -16349,7 +16349,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":806
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":806
  *         if ((child.byteorder == c'>' and little_endian) or
  *             (child.byteorder == c'<' and not little_endian)):
  *             raise ValueError(u"Non-native byte order not supported")             # <<<<<<<<<<<<<<
@@ -16360,7 +16360,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "../../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":826
+  /* "../../../.venvs/diptest/local/lib/python2.7/site-packages/Cython/Includes/numpy/__init__.pxd":826
  *             t = child.type_num
  *             if end - f < 5:
  *                 raise RuntimeError(u"Format string allocated too short.")             # <<<<<<<<<<<<<<
@@ -16506,7 +16506,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
-  /* "diptest/diptest.pyx":22
+  /* "diptest/_diptest.pyx":22
  * 
  * 
  * def diptest(x, min_is_0=True, full_output=False, debug=0):             # <<<<<<<<<<<<<<
@@ -16591,11 +16591,11 @@ static int __Pyx_InitGlobals(void) {
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC initdiptest(void); /*proto*/
-PyMODINIT_FUNC initdiptest(void)
+PyMODINIT_FUNC init_diptest(void); /*proto*/
+PyMODINIT_FUNC init_diptest(void)
 #else
-PyMODINIT_FUNC PyInit_diptest(void); /*proto*/
-PyMODINIT_FUNC PyInit_diptest(void)
+PyMODINIT_FUNC PyInit__diptest(void); /*proto*/
+PyMODINIT_FUNC PyInit__diptest(void)
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
@@ -16612,7 +16612,7 @@ PyMODINIT_FUNC PyInit_diptest(void)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_diptest(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit__diptest(void)", 0);
   if ( __Pyx_check_binary_version() < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -16634,7 +16634,7 @@ PyMODINIT_FUNC PyInit_diptest(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("diptest", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("_diptest", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -16651,14 +16651,14 @@ PyMODINIT_FUNC PyInit_diptest(void)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   #endif
-  if (__pyx_module_is_main_diptest__diptest) {
+  if (__pyx_module_is_main_diptest___diptest) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    if (!PyDict_GetItemString(modules, "diptest.diptest")) {
-      if (unlikely(PyDict_SetItemString(modules, "diptest.diptest", __pyx_m) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!PyDict_GetItemString(modules, "diptest._diptest")) {
+      if (unlikely(PyDict_SetItemString(modules, "diptest._diptest", __pyx_m) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
   }
   #endif
@@ -16719,7 +16719,7 @@ PyMODINIT_FUNC PyInit_diptest(void)
   /*--- Function import code ---*/
   /*--- Execution code ---*/
 
-  /* "diptest/diptest.pyx":3
+  /* "diptest/_diptest.pyx":3
  * 
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -16731,19 +16731,19 @@ PyMODINIT_FUNC PyInit_diptest(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "diptest/diptest.pyx":22
+  /* "diptest/_diptest.pyx":22
  * 
  * 
  * def diptest(x, min_is_0=True, full_output=False, debug=0):             # <<<<<<<<<<<<<<
  *     """
  *     Hartigan & Hartigan's dip test statistic for unimodality
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7diptest_7diptest_1diptest, NULL, __pyx_n_s_diptest_diptest); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7diptest_8_diptest_1diptest, NULL, __pyx_n_s_diptest__diptest); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_diptest, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "diptest/diptest.pyx":3
+  /* "diptest/_diptest.pyx":3
  * 
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -16879,11 +16879,11 @@ PyMODINIT_FUNC PyInit_diptest(void)
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init diptest.diptest", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init diptest._diptest", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init diptest.diptest");
+    PyErr_SetString(PyExc_ImportError, "init diptest._diptest");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

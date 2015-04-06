@@ -69,7 +69,7 @@ def diptest(x, min_is_0=True, full_output=False, debug=0):
         int min_is_0_ = min_is_0
         int debug_ = debug
 
-    # cast to double, force a copy to avoid inplace sort
+    # cast to double, force a copy to avoid inplace
     x = np.array(x, dtype=np.double, copy=True)
 
     # input needs to be sorted in ascending order
