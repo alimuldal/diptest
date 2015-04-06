@@ -55,11 +55,6 @@ void diptst(const double x[], const int *n_,
     int mnj, mnmnj, mjk, mjmjk, ig, ih, iv, ix,  i, j, k;
     double dip_l, dip_u, dipnew;
 
-    /* Parameter adjustments, so I can do "as with index 1" : x[1]..x[n] */
-    --mj;    --mn;
-    --lcm;   --gcm;
-    --x;
-
 /*-------- Function Body ------------------------------ */
 
     *ifault = 1;    if (n <= 0) return;
@@ -67,7 +62,7 @@ void diptst(const double x[], const int *n_,
 
 /* Check that X is sorted --- if not, return with  ifault = 2*/
 
-    *ifault = 2;    for (k = 2; k <= n; ++k) if (x[k] < x[k - 1]) return;
+    *ifault = 2;    for (k = 0; k <= (n - 1); ++k) if (x[k] < x[k - 1]) return;
     *ifault = 0;
 
 /* Check for all values of X identical, */
@@ -76,12 +71,12 @@ void diptst(const double x[], const int *n_,
 /* LOW contains the index of the current estimate  of the lower end
    of the modal interval, HIGH contains the index for the upper end.
 */
-    low = 1;    high = n; /*-- IDEA:  *xl = x[low];    *xu = x[high]; --*/
+    low = 0;    high = n - 1; /*-- IDEA:  *xl = x[low];    *xu = x[high]; --*/
 
 /* M.Maechler -- speedup: it saves many divisions by n when we just work with
  * (2n * dip) everywhere but the very end! */
     *dip = (*min_is_0) ? 0. : 1.;
-    if (n < 2 || x[n] == x[1])      goto L_END;
+    if (n < 2 || x[n - 1] == x[0])      goto L_END;
 
  //    if(*debug)
     // printf("dip() in C: n = %d; starting with  2N*dip = %g.\n",
@@ -90,13 +85,13 @@ void diptst(const double x[], const int *n_,
 /* Establish the indices   mn[1..n]  over which combination is necessary
    for the convex MINORANT (GCM) fit.
 */
-    mn[1] = 1;
-    for (j = 2; j <= n; ++j) {
+    mn[0] = 0;
+    for (j = 1; j <= (n - 1); ++j) {
     mn[j] = j - 1;
     while(1) {
       mnj = mn[j];
       mnmnj = mn[mnj];
-      if (mnj == 1 ||
+      if (mnj == 0 ||
           ( x[j]  - x[mnj]) * (mnj - mnmnj) <
           (x[mnj] - x[mnmnj]) * (j - mnj)) break;
       mn[j] = mnmnj;
@@ -106,13 +101,13 @@ void diptst(const double x[], const int *n_,
 /* Establish the indices   mj[1..n]  over which combination is necessary
    for the concave MAJORANT (LCM) fit.
 */
-    mj[n] = n;
-    for (k = n - 1; k >= 1; k--) {
+    mj[n - 1] = n - 1;
+    for (k = n - 2; k >= 0; k--) {
     mj[k] = k + 1;
     while(1) {
       mjk = mj[k];
       mjmjk = mj[mjk];
-      if (mjk == n ||
+      if (mjk == (n - 1) ||
           ( x[k]  - x[mjk]) * (mjk - mjmjk) <
           (x[mjk] - x[mjmjk]) * (k - mjk)) break;
       mj[k] = mjmjk;
@@ -123,15 +118,16 @@ void diptst(const double x[], const int *n_,
 LOOP_Start:
 
     /* Collect the change points for the GCM from HIGH to LOW. */
-    gcm[1] = high;
-    for(i = 1; gcm[i] > low; i++)
+    gcm[0] = high;
+    for(i = 0; gcm[i] > low; i++)
     gcm[i+1] = mn[gcm[i]];
     ig = l_gcm = i; // l_gcm == relevant_length(GCM)
     ix = ig - 1; //  ix, ig  are counters for the convex minorant.
 
+
     /* Collect the change points for the LCM from LOW to HIGH. */
-    lcm[1] = low;
-    for(i = 1; lcm[i] < high; i++)
+    lcm[0] = low;
+    for(i = 0; lcm[i] < high; i++)
     lcm[i+1] = mj[lcm[i]];
     ih = l_lcm = i; // l_lcm == relevant_length(LCM)
     iv = 2; //  iv, ih  are counters for the concave majorant.
@@ -140,9 +136,9 @@ LOOP_Start:
     printf("'dip': LOOP-BEGIN: 2n*D= %-8.5g  [low,high] = [%3d,%3d]", *dip, low,high);
     if(*debug >= 3) {
         printf(" :\n gcm[1:%d] = ", l_gcm);
-        for(i = 1; i <= l_gcm; i++) printf("%d%s", gcm[i], (i < l_gcm)? ", " : "\n");
+        for(i = 0; i <= l_gcm; i++) printf("%d%s", gcm[i], (i < l_gcm)? ", " : "\n");
         printf(" lcm[1:%d] = ", l_lcm);
-        for(i = 1; i <= l_lcm; i++) printf("%d%s", lcm[i], (i < l_lcm)? ", " : "\n");
+        for(i = 0; i <= l_lcm; i++) printf("%d%s", lcm[i], (i < l_lcm)? ", " : "\n");
     } else { // debug <= 2 :
         printf("; l_lcm/gcm = (%2d,%2d)\n", l_lcm,l_gcm);
     }
@@ -189,7 +185,7 @@ LOOP_Start:
           if(*debug >= 2) printf(" G(%d,%d)", ig,ih);
           }
       }
-      if (ix < 1)   ix = 1;
+      if (ix < 0)   ix = 0;
       if (iv > l_lcm)   iv = l_lcm;
       if(*debug) {
           if(*debug >= 2) printf(" --> ix = %d, iv = %d\n", ix,iv);
@@ -203,6 +199,7 @@ LOOP_Start:
     if(*debug)
         printf("  ** (l_lcm,l_gcm) = (%d,%d) ==> d := %g\n", l_lcm, l_gcm, (double)d);
     }
+
 
     if (d < *dip)   goto L_END;
 

@@ -33,7 +33,7 @@ def diptest(x, min_is_0=True, full_output=False, debug=0):
 
     full_output:    boolean, see below
 
-    debug:          int, 0 <= debug <= 2, print debugging messages
+    debug:          int, 0 <= debug <= 3, print debugging messages
 
     Returns:
     -----------
