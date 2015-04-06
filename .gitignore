@@ -1,0 +1,31 @@
+syntax: glob
+*.pyc
+*~
+*.swp
+*.png
+*.eps
+*.svg
+*.pdf
+build/*
+data
+boy
+*.pickle
+*.pkl
+*.hdf5
+*.mat
+*.log
+tmp/*
+*.prof
+*.lprof
+*.npy
+*.npz
+*.html
+*.so
+*.old
+*.orig
+*.csv
+*.html
+tmp/
+
+syntax: regexp
+
