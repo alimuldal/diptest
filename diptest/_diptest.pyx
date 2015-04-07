@@ -1,63 +1,30 @@
-
-
 import numpy as np
 cimport numpy as np
 
+EMSGS = {1:'n must be >= 1',
+         2:'x must be sorted in ascending order'}
 
-cdef extern from "_dip.h" nogil:
+# defined in _dip.c
+cdef extern nogil:
 
     void diptst(const double* x,
-                const int *n_,
-                double *dip,
-                int *lo_hi,
-                int *ifault,
-                int *gcm,
-                int *lcm,
-                int *mn,
-                int *mj,
-                const int *min_is_0,
-                const int *debug)
+                const int* n_,
+                double* dip,
+                int* lo_hi,
+                int* ifault,
+                int* gcm,
+                int* lcm,
+                int* mn,
+                int* mj,
+                const int* min_is_0,
+                const int* debug)
 
-
-def diptest(x, min_is_0=True, full_output=False, debug=0):
-    """
-    Hartigan & Hartigan's dip test statistic for unimodality
-
-    Arguments:
-    -----------
-    x:              [n,] array  containing the input data
-
-    min_is_0:       boolean, if True the minimum value of the test statistic is
-                    allowed to be zero in cases where n < 2 or all values in x
-                    are identical
-
-    full_output:    boolean, see below
-
-    debug:          int, 0 <= debug <= 3, print debugging messages
-
-    Returns:
-    -----------
-    dip:    double, the dip statistic
-
-    [res]:  dict, returned if full_output == True. contains the following
-            fields:
-
-            xs:     sorted input data as doubles
-            n:      len(x)
-            dip:    dip statistic
-            lo:     indices of lower end of modal interval
-            hi:     indices of upper end of modal interval
-            xl:     lower end of modal interval
-            xu:     upper end of modal interval
-            gcm:    (last-used) indices of the greatest concave majorant
-            lcm:    (last-used) indices of the least concave majorant
-
-    """
+# wrapper to expose 'diptst' C function to Python space
+def _dip(x, full_output, min_is_0, x_is_sorted, debug):
 
     cdef:
         double[:] x_
         int n = x.shape[0]
-
         double dip = np.nan
         int[:] lo_hi = np.empty(4, dtype=np.int32)
         int ifault = 0
@@ -65,20 +32,26 @@ def diptest(x, min_is_0=True, full_output=False, debug=0):
         int[:] lcm = np.empty(n, dtype=np.int32)
         int[:] mn = np.empty(n, dtype=np.int32)
         int[:] mj = np.empty(n, dtype=np.int32)
-
         int min_is_0_ = min_is_0
         int debug_ = debug
 
-    # cast to double, force a copy to avoid inplace
-    x = np.array(x, dtype=np.double, copy=True)
-
     # input needs to be sorted in ascending order
-    x.sort()
+    if not x_is_sorted:
 
-    x_ = x
+        # force a copy to prevent inplace modification of input
+        x = x.copy()
+
+        # sort inplace
+        x.sort()
+
+    # cast to double
+    x_ = x.astype(np.double)
 
     diptst(&x_[0], &n, &dip, &lo_hi[0], &ifault, &gcm[0], &lcm[0], &mn[0],
            &mj[0], &min_is_0_, &debug_)
+
+    if ifault:
+        raise ValueError(EMSGS[ifault])
 
     if full_output:
         res_dict = {
@@ -94,9 +67,8 @@ def diptest(x, min_is_0=True, full_output=False, debug=0):
             'mn':np.array(mn),
             'mj':np.array(mj),
         }
-
         return dip, res_dict
 
     else:
-
         return dip
+
