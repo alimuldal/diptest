@@ -12,7 +12,6 @@ distribution.
 Dependencies
 ----
 * `numpy`
-* `scipy`
 * `Cython`
 
 Installation
@@ -27,7 +26,7 @@ Annals of Statistics.
 
 Hartigan, P. M. (1985). Computation of the Dip Statistic to Test for
 Unimodality. Journal of the Royal Statistical Society. Series C (Applied
-Statistics), 34(3), 320–325.
+Statistics), 34(3), 320-325.
 
 Acknowledgement
 ---
