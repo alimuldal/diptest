@@ -2,7 +2,6 @@ import numpy as np
 import _diptest
 import warnings
 import os
-from scipy.interpolate import interp1d
 
 
 def dip(x, full_output=False, min_is_0=True, x_is_sorted=False, debug=0):
@@ -124,7 +123,7 @@ def diptest(x, min_is_0=True, boot_pval=False, n_boot=2000):
 
         # interpolate on sqrt(n)
         n0, n1 = N[[i0, i1]]
-        fn = (n - n0) / (n1 - n0)
+        fn = float(n - n0) / (n1 - n0)
         y0 = np.sqrt(n0) * CV[i0]
         y1 = np.sqrt(n1) * CV[i1]
         sD = np.sqrt(n) * D
