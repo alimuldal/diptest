@@ -40,6 +40,8 @@
    $Id: dip.c,v 1.26 2012/08/13 16:44:11 maechler Exp $
 */
 
+#include <stdio.h>
+
 /* Subroutine */
 void diptst(const double x[], const int *n_,
         double *dip, int *lo_hi, int *ifault,
@@ -57,12 +59,11 @@ void diptst(const double x[], const int *n_,
 
 /*-------- Function Body ------------------------------ */
 
-    *ifault = 1;    if (n <= 0) return;
-    *ifault = 0;
+    *ifault = 1;    if (n < 1) return;
 
 /* Check that X is sorted --- if not, return with  ifault = 2*/
 
-    *ifault = 2;    for (k = 0; k <= (n - 1); ++k) if (x[k] < x[k - 1]) return;
+    *ifault = 2;    for (k = 1; k <= (n - 1); ++k) if (x[k] < x[k - 1]) return;
     *ifault = 0;
 
 /* Check for all values of X identical, */
@@ -130,14 +131,14 @@ LOOP_Start:
     for(i = 0; lcm[i] < high; i++)
     lcm[i+1] = mj[lcm[i]];
     ih = l_lcm = i; // l_lcm == relevant_length(LCM)
-    iv = 2; //  iv, ih  are counters for the concave majorant.
+    iv = 1; //  iv, ih  are counters for the concave majorant.
 
     if(*debug) {
     printf("'dip': LOOP-BEGIN: 2n*D= %-8.5g  [low,high] = [%3d,%3d]", *dip, low,high);
     if(*debug >= 3) {
-        printf(" :\n gcm[1:%d] = ", l_gcm);
+        printf(" :\n gcm[0:%d] = ", l_gcm);
         for(i = 0; i <= l_gcm; i++) printf("%d%s", gcm[i], (i < l_gcm)? ", " : "\n");
-        printf(" lcm[1:%d] = ", l_lcm);
+        printf(" lcm[0:%d] = ", l_lcm);
         for(i = 0; i <= l_lcm; i++) printf("%d%s", lcm[i], (i < l_lcm)? ", " : "\n");
     } else { // debug <= 2 :
         printf("; l_lcm/gcm = (%2d,%2d)\n", l_lcm,l_gcm);
@@ -265,7 +266,7 @@ LOOP_Start:
       --- Martin Maechler, Statistics, ETH Zurich, July 30 1994 ---------- */
     if (low == gcm[ig] && high == lcm[ih]) {
       if(*debug)
-    printf("No improvement in  low = %ld  nor  high = %ld --> END\n",
+    printf("No improvement in  low = %d  nor  high = %d --> END\n",
         low, high);
     } else {
     low  = gcm[ig];
