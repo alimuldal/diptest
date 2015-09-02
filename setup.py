@@ -13,4 +13,7 @@ setup(
     name='diptest',
     cmdclass={'build_ext': build_ext},
     ext_modules=[diptest],
+    packages=['diptest'],
+    package_data={'diptest': ['dip_crit.txt']},
+    include_dirs = [np.get_include()]
 )
