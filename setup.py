@@ -16,5 +16,4 @@ setup(
     ext_modules=[diptest],
     packages=['diptest'],
     package_data={'diptest': ['dip_crit.txt']},
-    include_dirs=[np.get_include()]
 )
