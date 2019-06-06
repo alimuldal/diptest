@@ -1,5 +1,5 @@
 import numpy as np
-import _diptest
+from diptest import _diptest
 import warnings
 import os
 
