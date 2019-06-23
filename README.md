@@ -9,6 +9,8 @@ unimodal distribution function that minimizes that maximum difference. Other
 than unimodality, it makes no further assumptions about the form of the null
 distribution.
 
+### WARNING: This code is no longer actively maintained.
+
 Dependencies
 ----
 * `numpy`
