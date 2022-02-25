@@ -1,0 +1,122 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
+
+IF (NOT DEFINED DIPTEST_VERSION_INFO)
+    SET(DIPTEST_VERSION_INFO "0.1.0")
+ENDIF ()
+
+SET(DEFAULT_BUILD_TYPE Release)
+IF (DEFINED ENV{DIPTEST_DEBUG_BUILD})
+    SET(CMAKE_BUILD_TYPE Debug)
+ENDIF ()
+IF (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  MESSAGE(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
+  SET(CMAKE_BUILD_TYPE "${DEFAULT_BUILD_TYPE}" CACHE STRING "Choose the type of build." FORCE)
+  # Set the possible values of build type for cmake-gui
+  SET_PROPERTY(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
+    "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+ENDIF ()
+
+PROJECT(
+    diptest
+    VERSION ${DIPTEST_VERSION_INFO}
+    DESCRIPTION "Python bindings for Hartigan's diptest."
+    LANGUAGES C CXX
+)
+
+################################################################################
+#                                   SETTINGS                                   #
+################################################################################
+SET(CMAKE_CXX_STANDARD 14)
+SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+FIND_PACKAGE(pybind11 CONFIG REQUIRED)
+FIND_PACKAGE(OpenMP)
+
+INCLUDE(CheckCXXCompilerFlag)
+
+IF (DEFINED ENV{DIPTEST_BUILDING_WHEELS} OR DIPTEST_BUILDING_WHEELS)
+    # disable architecture flags
+    SET(DIPTEST_RELEASE_FLAGS "")
+ELSE ()
+    SET(DIPTEST_RELEASE_FLAGS "")
+    CHECK_CXX_COMPILER_FLAG("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE)
+    IF(COMPILER_SUPPORTS_MARCH_NATIVE)
+        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -march=native")
+    ENDIF()
+    CHECK_CXX_COMPILER_FLAG("-mtune=native" COMPILER_SUPPORTS_MTUNE_NATIVE)
+    IF(COMPILER_SUPPORTS_MTUNE_NATIVE)
+        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -mtune=native")
+    ENDIF()
+    CHECK_CXX_COMPILER_FLAG("-ftree-vectorize" COMPILER_SUPPORTS_FTREE)
+    IF(COMPILER_SUPPORTS_FTREE)
+        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -ftree-vectorize")
+    ENDIF()
+    CHECK_CXX_COMPILER_FLAG("-mavx" COMPILER_SUPPORTS_MAVX2)
+    IF(COMPILER_SUPPORTS_MAVX2)
+        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -mavx")
+    ENDIF()
+    CHECK_CXX_COMPILER_FLAG("-mavx2" COMPILER_SUPPORTS_MAVX2)
+    IF(COMPILER_SUPPORTS_MAVX2)
+        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -mavx2")
+    ENDIF()
+ENDIF()
+
+################################################################################
+#                               PYTHON EXTENSION                               #
+################################################################################
+SET(MODNAME "_diptest")
+ADD_DEFINITIONS(-DEXTENSION_MODULE_NAME=${MODNAME})
+
+SET(DIPTEST_EXT_PATH"${PROJECT_SOURCE_DIR}/mmu/core/bindings")
+
+pybind11_add_module(${MODNAME}
+    MODULE
+        ${PROJECT_SOURCE_DIR}/src/diptest.c
+        ${PROJECT_SOURCE_DIR}/src/bindings.cpp
+        ${PROJECT_SOURCE_DIR}/src/wrapper.cpp
+)
+
+IF (OpenMP_CXX_FOUND)
+    TARGET_LINK_LIBRARIES(
+        ${MODNAME}
+        PRIVATE
+            OpenMP::OpenMP_CXX
+    )
+ENDIF ()
+
+TARGET_INCLUDE_DIRECTORIES(${MODNAME} PUBLIC "${PROJECT_SOURCE_DIR}/include")
+TARGET_COMPILE_DEFINITIONS(
+    ${MODNAME}
+    PRIVATE
+        VERSION_INFO=${DIPTEST_VERSION_INFO}
+)
+
+IF(DEFINED ENV{DIPTEST_DEV_MODE} OR DIPTEST_DEV_MODE)
+    TARGET_COMPILE_OPTIONS(${MODNAME}
+        INTERFACE
+            -Wall
+            -Wextra
+            -Wunused-variable
+            -Wunused-const-variable
+    )
+ENDIF()
+
+TARGET_COMPILE_OPTIONS( ${MODNAME}
+    PRIVATE
+        "$<$<CONFIG:RELEASE>:${DIPTEST_RELEASE_OPTIONS}>"
+)
+
+# Set required C++11 flags
+SET_PROPERTY(TARGET ${MODNAME} PROPERTY CXX_STANDARD 11)
+SET_PROPERTY(TARGET ${MODNAME} PROPERTY CXX_STANDARD_REQUIRED ON)
+SET_PROPERTY(TARGET ${MODNAME} PROPERTY CXX_EXTENSIONS OFF)
+SET_PROPERTY(TARGET ${MODNAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+if(SKBUILD)
+    INSTALL(TARGETS ${MODNAME} LIBRARY DESTINATION "${PROJECT_NAME}/lib")
+ELSE ()
+    INSTALL(
+        TARGETS ${MODNAME}
+        LIBRARY DESTINATION "${PROJECT_SOURCE_DIR}/diptest/lib"
+    )
+ENDIF ()
