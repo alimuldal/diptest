@@ -39,19 +39,30 @@
                        gave wrong result (larger dip than possible) in some cases
    $Id: dip.c,v 1.26 2012/08/13 16:44:11 maechler Exp $
 */
-
-#include <stdio.h>
+#include <diptest/diptest.h>
 
 /* Subroutine */
-void diptst(const double x[], const int *n_,
-        double *dip, int *lo_hi, int *ifault,
-        int *gcm, int *lcm, int *mn, int *mj,
-        const int *min_is_0, const int *debug)
-{
+void diptst(
+    const double x[],
+    const int *n_,
+    double *dip,
+    int *lo_hi,
+    int *ifault,
+    int *gcm,
+    int *lcm,
+    int *mn,
+    int *mj,
+    const int *min_is_0,
+    const int *debug
+) {
 #define low   lo_hi[0]
 #define high  lo_hi[1]
 #define l_gcm lo_hi[2]
 #define l_lcm lo_hi[3]
+
+#ifndef DIPTEST_DEBUG
+    UNUSED(debug);
+#endif
 
     const int n = *n_;
     int mnj, mnmnj, mjk, mjmjk, ig, ih, iv, ix,  i, j, k;
@@ -78,10 +89,6 @@ void diptst(const double x[], const int *n_,
  * (2n * dip) everywhere but the very end! */
     *dip = (*min_is_0) ? 0. : 1.;
     if (n < 2 || x[n - 1] == x[0])      goto L_END;
-
- //    if(*debug)
-    // printf("dip() in C: n = %d; starting with  2N*dip = %g.\n",
-    //  n, *dip);
 
 /* Establish the indices   mn[1..n]  over which combination is necessary
    for the convex MINORANT (GCM) fit.
@@ -133,6 +140,7 @@ LOOP_Start:
     ih = l_lcm = i; // l_lcm == relevant_length(LCM)
     iv = 1; //  iv, ih  are counters for the concave majorant.
 
+#if defined (DIPTEST_DEBUG)
     if(*debug) {
     printf("'dip': LOOP-BEGIN: 2n*D= %-8.5g  [low,high] = [%3d,%3d]", *dip, low,high);
     if(*debug >= 3) {
@@ -144,6 +152,7 @@ LOOP_Start:
         printf("; l_lcm/gcm = (%2d,%2d)\n", l_lcm,l_gcm);
     }
     }
+#endif // DIPTEST_DEBUG
 
 /*  Find the largest distance greater than 'DIP' between the GCM and
  *  the LCM from LOW to HIGH. */
@@ -151,8 +160,9 @@ LOOP_Start:
     // FIXME: <Rconfig.h>  should provide LDOUBLE or something like it
     long double d = 0.;// <<-- see if this makes 32-bit/64-bit difference go..
     if (l_gcm != 2 || l_lcm != 2) {
-    if(*debug) printf("  while(gcm[ix] != lcm[iv]) :%s",
-               (*debug >= 2) ? "\n" : " ");
+#if defined (DIPTEST_DEBUG)
+    if(*debug) printf("  while(gcm[ix] != lcm[iv]) :%s", (*debug >= 2) ? "\n" : " ");
+#endif // DIPTEST_DEBUG
       do { /* gcm[ix] != lcm[iv]  (after first loop) */
       long double dx;
       int gcmix = gcm[ix],
@@ -168,7 +178,9 @@ LOOP_Start:
           d = dx;
           ig = ix + 1;
           ih = iv - 1;
+#if defined (DIPTEST_DEBUG)
           if(*debug >= 2) printf(" L(%d,%d)", ig,ih);
+#endif // DIPTEST_DEBUG
           }
       }
       else {
@@ -183,29 +195,36 @@ LOOP_Start:
           d = dx;
           ig = ix + 1;
           ih = iv;
+#if defined (DIPTEST_DEBUG)
           if(*debug >= 2) printf(" G(%d,%d)", ig,ih);
+#endif // DIPTEST_DEBUG
           }
       }
       if (ix < 0)   ix = 0;
       if (iv > l_lcm)   iv = l_lcm;
+#if defined (DIPTEST_DEBUG)
       if(*debug) {
           if(*debug >= 2) printf(" --> ix = %d, iv = %d\n", ix,iv);
           else printf(".");
       }
+#endif // DIPTEST_DEBUG
       } while (gcm[ix] != lcm[iv]);
+#if defined (DIPTEST_DEBUG)
       if(*debug && *debug < 2) printf("\n");
+#endif // DIPTEST_DEBUG
     }
     else { /* l_gcm or l_lcm == 2 */
     d = (*min_is_0) ? 0. : 1.;
-    if(*debug)
-        printf("  ** (l_lcm,l_gcm) = (%d,%d) ==> d := %g\n", l_lcm, l_gcm, (double)d);
+#if defined (DIPTEST_DEBUG)
+    if(*debug) printf("  ** (l_lcm,l_gcm) = (%d,%d) ==> d := %g\n", l_lcm, l_gcm, (double)d);
+#endif // DIPTEST_DEBUG
     }
-
-
     if (d < *dip)   goto L_END;
 
 /*     Calculate the DIPs for the current LOW and HIGH. */
+#if defined (DIPTEST_DEBUG)
     if(*debug) printf("  calculating dip ..");
+#endif // DIPTEST_DEBUG
 
     int j_best, j_l = -1, j_u = -1;
 
@@ -247,7 +266,9 @@ LOOP_Start:
     }
     }
 
+#if defined (DIPTEST_DEBUG)
     if(*debug) printf(" (dip_l, dip_u) = (%g, %g)", dip_l, dip_u);
+#endif // DIPTEST_DEBUG
 
     /* Determine the current maximum. */
     if(dip_u > dip_l) {
@@ -257,17 +278,20 @@ LOOP_Start:
     }
     if (*dip < dipnew) {
     *dip = dipnew;
-    if(*debug)
-        printf(" -> new larger dip %g (j_best = %d)\n", dipnew, j_best);
+#if defined (DIPTEST_DEBUG)
+    if(*debug) printf(" -> new larger dip %g (j_best = %d)\n", dipnew, j_best);
+    } else if(*debug) printf("\n");
+#else
     }
-    else if(*debug) printf("\n");
+#endif // DIPTEST_DEBUG
 
     /*--- The following if-clause is NECESSARY  (may loop infinitely otherwise)!
       --- Martin Maechler, Statistics, ETH Zurich, July 30 1994 ---------- */
     if (low == gcm[ig] && high == lcm[ih]) {
-      if(*debug)
-    printf("No improvement in  low = %d  nor  high = %d --> END\n",
-        low, high);
+
+#if defined (DIPTEST_DEBUG)
+      if(*debug) printf("No improvement in  low = %d  nor  high = %d --> END\n", low, high);
+#endif // DIPTEST_DEBUG
     } else {
     low  = gcm[ig];
     high = lcm[ih];    goto LOOP_Start; /* Recycle */
