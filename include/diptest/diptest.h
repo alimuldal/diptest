@@ -1,5 +1,5 @@
-#ifndef DIPTEST__DIP_H_
-#define DIPTEST__DIP_H_
+#ifndef INCLUDE_DIPTEST_DIPTEST_H_
+#define INCLUDE_DIPTEST_DIPTEST_H_
 #define UNUSED(expr) do { (void)(expr); } while (0)
 
 #include <stdio.h>
@@ -18,4 +18,4 @@ void diptst(
     const int *min_is_0,
     const int *debug
 );
-#endif  // DIPTEST__DIP_H_
+#endif  // INCLUDE_DIPTEST_DIPTEST_H_
