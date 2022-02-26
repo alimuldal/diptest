@@ -1,10 +1,27 @@
-import numpy as np
-from diptest import _diptest
-import warnings
 import os
+import warnings
+
+import numpy as np
+
+from diptest.lib import _diptest
+
+# [len(N), len(SIG)] table of critical values
+_cdir = os.path.dirname(os.path.realpath(__file__))
+_crit_vals = np.loadtxt(os.path.join(_cdir, 'dip_crit.txt'))
+
+_sample_size = np.array((
+    4, 5, 6, 7, 8, 9, 10, 15, 20, 30, 50, 100,
+    200, 500, 1000, 2000, 5000, 10000, 20000, 40000, 72000
+))
+
+_alpha = np.array((
+    0., 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9,
+    0.95, 0.98, 0.99, 0.995, 0.998, 0.999, 0.9995, 0.9998 , 0.9999,
+    0.99995, 0.99998, 0.99999, 1.
+))
 
 
-def dip(x, full_output=False, min_is_0=True, x_is_sorted=False, debug=0):
+def dip(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
     """
     Hartigan & Hartigan's dip statistic
 
@@ -13,28 +30,29 @@ def dip(x, full_output=False, min_is_0=True, x_is_sorted=False, debug=0):
     function, and the unimodal distribution function that minimizes that
     maximum difference.
 
-    Arguments:
-    -----------
-    x:              [n,] array  containing the input data
+    Parameters
+    ----------
+    x : np.ndarray
+        the input samples
+    full_output : boolean, default=False
+        return dict alongside statistic, see below for details
+    allow_zero : boolean, default=True
+        if True the minimum value of the test statistic is
+        allowed to be zero in cases where n <= 3 or all values in x
+        are identical.
+    sort_x : bool, default=True
+        if False x is assumed to already be sorted in ascending order
+    debug : int, default=0
+        0 <= debug <= 3, print debugging messages, is ignored unless
+        the pacakge was installed in debug mode
 
-    full_output:    boolean, see below
-
-    min_is_0:       boolean, if True the minimum value of the test statistic is
-                    allowed to be zero in cases where n <= 3 or all values in x
-                    are identical.
-
-    x_is_sorted:    boolean, if True x is assumed to already be sorted in
-                    ascending order
-
-    debug:          int, 0 <= debug <= 3, print debugging messages
-
-    Returns:
-    -----------
-    dip:    double, the dip statistic
-
-    [res]:  dict, returned if full_output == True. contains the following
-            fields:
-
+    Returns
+    -------
+    dip : double
+        the dip statistic
+    res : dict, optional
+        returned if full_output == True.
+        Contains the following fields:
             xs:     sorted input data as doubles
             n:      len(x)
             dip:    dip statistic
@@ -45,16 +63,29 @@ def dip(x, full_output=False, min_is_0=True, x_is_sorted=False, debug=0):
             gcm:    (last-used) indices of the greatest concave majorant
             lcm:    (last-used) indices of the least concave majorant
 
-    Reference:
+    Reference
     -----------
-        Hartigan, J. A., & Hartigan, P. M. (1985). The Dip Test of Unimodality.
+    Hartigan, J. A., & Hartigan, P. M. (1985). The Dip Test of Unimodality.
         The Annals of Statistics.
     """
+    if (x.ndim > 1 and (x.shape[1] * x.shape[0] != x.size)):
+        raise TypeError("x should be one-dimensional")
+    if sort_x:
+        x = np.sort(x)
+    elif not (x.flags.c_contigous or x.flags.f_contiguous):
+        x = np.copy(x, order='C')
+    if full_output:
+        res = _diptest.diptest_full(x, allow_zero, debug)
+        dip = res.pop('dip')
+        _gcm = res.pop('_gcm')
+        res['gcm'] = _gcm[:res.pop('_lh_2')]
+        _lcm = res.pop('_;cm')
+        res['lcm'] = _lcm[:res.pop('_lh_3')]
+        return dip, res
+    return _diptest.diptest(x, allow_zero, debug)
 
-    return _diptest._dip(x, full_output, min_is_0, x_is_sorted, debug)
 
-
-def diptest(x, min_is_0=True, boot_pval=False, n_boot=2000):
+def diptest(x, allow_zero=True, boot_pval=False, n_boot=10000, n_threads=None, seed=None):
     """
     Hartigan & Hartigan's dip test for unimodality.
 
@@ -63,86 +94,87 @@ def diptest(x, min_is_0=True, boot_pval=False, n_boot=2000):
     Other than unimodality, the dip test does not assume any particular null
     distribution.
 
-    Arguments:
-    -----------
-    x:          [n,] array  containing the input data
-
-    min_is_0:   boolean, see docstring for dip()
-
-    boot_pval:  if True the p-value is computed using bootstrap samples from a
-                uniform distribution, otherwise it is computed via linear
-                interpolation of the tabulated critical values in dip_crit.txt.
-
-    n_boot:     if boot_pval=True, this sets the number of bootstrap samples to
-                use for computing the p-value.
+    Parameters
+    ----------
+    x : np.ndarray
+        the input samples
+    allow_zero : boolean, default=True
+        if True the minimum value of the test statistic is
+        allowed to be zero in cases where n <= 3 or all values in x
+        are identical.
+    boot_pval : bool, default=False
+        if True the p-value is computed using bootstrap samples from a
+        uniform distribution, otherwise it is computed via linear
+        interpolation of the tabulated critical values in dip_crit.txt.
+    n_boot : int, default=10000
+        if boot_pval=True, this sets the number of bootstrap samples to
+        use for computing the p-value.
+    n_threads : int, default=None
+        number of threads to use when computing the p-value using bootstrap.
+        Defaults to 4, if set to 1 the computation is
+        performed single threaded
+    seed : int, default=None
+        seed used for the generation of the uniform samples when computing the
+        p-value.
 
     Returns:
     -----------
-    dip:    double, the dip statistic
-
-    pval:   double, the p-value for the test
+    dip : double
+        the dip statistic
+    pval : double
+        the p-value for the test
 
     Reference:
     -----------
-        Hartigan, J. A., & Hartigan, P. M. (1985). The Dip Test of Unimodality.
+    Hartigan, J. A., & Hartigan, P. M. (1985). The Dip Test of Unimodality.
         The Annals of Statistics.
 
     """
     n = x.shape[0]
-    D = dip(x, full_output=False, min_is_0=min_is_0)
+    dip = _diptest.diptest(x, allow_zero=allow_zero)
 
     if n <= 3:
         warnings.warn('Dip test is not valid for n <= 3')
         pval = 1.0
 
     elif boot_pval:
-
-        # random uniform vectors
-        boot_x = np.random.rand(n_boot, n)
-
-        # faster to pre-sort
-        boot_x.sort(axis=1)
-        boot_D = np.empty(n_boot)
-
-        for ii in xrange(n_boot):
-            boot_D[ii] = dip(boot_x[ii], full_output=False,
-                             min_is_0=min_is_0, x_is_sorted=True)
-
-        pval = np.mean(D <= boot_D)
+        n_threads = n_threads or 0
+        if n_threads > 1:
+            pval = _diptest.diptest_pval_mt(
+                dipstat=dip,
+                n=n,
+                n_boot=n_boot,
+                allow_zero=allow_zero,
+                seed=seed or 0,
+                n_threads=n_threads
+            )
+            return dip, pval
+        pval = _diptest.diptest_pval(
+            dipstat=dip,
+            n=n,
+            n_boot=n_boot,
+            allow_zero=allow_zero,
+            seed=seed or 0
+        )
+        return dip, pval
 
     else:
-
-        i1 = N.searchsorted(n, side='left')
+        i1 = _sample_size.searchsorted(n, side='left')
         i0 = i1 - 1
 
         # if n falls outside the range of tabulated sample sizes, use the
         # critical values for the nearest tabulated n (i.e. treat them as
         # 'asymptotic')
         i0 = max(0, i0)
-        i1 = min(N.shape[0] - 1, i1)
+        i1 = min(_sample_size.shape[0] - 1, i1)
 
         # interpolate on sqrt(n)
-        n0, n1 = N[[i0, i1]]
+        n0, n1 = _sample_size[[i0, i1]]
         fn = float(n - n0) / (n1 - n0)
-        y0 = np.sqrt(n0) * CV[i0]
-        y1 = np.sqrt(n1) * CV[i1]
-        sD = np.sqrt(n) * D
+        y0 = np.sqrt(n0) * _crit_vals[i0]
+        y1 = np.sqrt(n1) * _crit_vals[i1]
+        sD = np.sqrt(n) * dip
 
-        pval = 1. - np.interp(sD, y0 + fn * (y1 - y0), SIG)
+        pval = 1. - np.interp(sD, y0 + fn * (y1 - y0), _alpha)
 
-    return D, pval
-
-
-# [len(N), len(SIG)] table of critical values
-curdir = os.path.dirname(os.path.realpath(__file__))
-CV = np.loadtxt(os.path.join(curdir, 'dip_crit.txt'))
-
-N = np.array([    4,     5,     6,     7,     8,     9,    10,    15,    20,
-                 30,    50,   100,   200,   500,  1000,  2000,  5000, 10000,
-              20000, 40000, 72000])
-
-SIG = np.array([ 0.     ,  0.01   ,  0.02   ,  0.05   ,  0.1    ,  0.2    ,
-                 0.3    ,  0.4    ,  0.5    ,  0.6    ,  0.7    ,  0.8    ,
-                 0.9    ,  0.95   ,  0.98   ,  0.99   ,  0.995  ,  0.998  ,
-                 0.999  ,  0.9995 ,  0.9998 ,  0.9999 ,  0.99995,  0.99998,
-                 0.99999,  1.     ])
+    return dip, pval
