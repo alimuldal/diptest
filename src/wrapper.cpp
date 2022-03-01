@@ -23,7 +23,6 @@ double* std_uniform(const int64_t n_boot, const int64_t n, const int64_t seed) {
 }
 
 double diptest(const double* x_ptr, int N, int allow_zero, int debug) {
-    double dip = NAN;
     int ifault = 0;
     int lo_hi[4] = {0, 0, 0, 0};
     std::unique_ptr<int[]> gcm(new int[N]);
@@ -31,18 +30,17 @@ double diptest(const double* x_ptr, int N, int allow_zero, int debug) {
     std::unique_ptr<int[]> mn(new int[N]);
     std::unique_ptr<int[]> mj(new int[N]);
 
-    diptst(
+    double dip = diptst(
         x_ptr,
-        &N,
-        &dip,
+        N,
         &lo_hi[0],
         &ifault,
         gcm.get(),
         lcm.get(),
         mn.get(),
         mj.get(),
-        &allow_zero,
-        &debug
+        allow_zero,
+        debug
     );
 
     if (ifault == 1) {
@@ -62,7 +60,6 @@ double diptest(const py::array_t<double>&x, int allow_zero, int debug) {
 py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
     const double* x_ptr =  x.data();
     int N = x.size();
-    double dip = NAN;
     int ifault = 0;
     int lo_hi[4] = {0, 0, 0, 0};
 
@@ -75,18 +72,17 @@ py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
     int* mn_ptr = mn.mutable_data();
     int* mj_ptr = mj.mutable_data();
 
-    diptst(
+    double dip = diptst(
         x_ptr,
-        &N,
-        &dip,
+        N,
         &lo_hi[0],
         &ifault,
         gcm_ptr,
         lcm_ptr,
         mn_ptr,
         mj_ptr,
-        &allow_zero,
-        &debug
+        allow_zero,
+        debug
     );
 
     if (ifault == 1) {
@@ -156,7 +152,7 @@ double diptest_pval_mt(
         seed = rd();
     }
 
-    std::unique_ptr<int[]> dips(new int[n_boot]);
+    std::unique_ptr<bool[]> dips(new bool[n_boot]);
     double* sample = details::std_uniform(n_boot, n, seed);
     double* p_sample;
     double* p_sample_end;

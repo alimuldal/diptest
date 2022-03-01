@@ -5,17 +5,16 @@
 #include <stdio.h>
 
 /* Subroutine */
-void diptst(
+double diptst(
     const double x[],
-    const int *n_,
-    double *dip,
+    const int n,
     int *lo_hi,
     int *ifault,
     int *gcm,
     int *lcm,
     int *mn,
     int *mj,
-    const int *min_is_0,
-    const int *debug
+    const int min_is_0,
+    const int debug
 );
 #endif  // INCLUDE_DIPTEST_DIPTEST_H_
