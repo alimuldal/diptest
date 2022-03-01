@@ -21,7 +21,7 @@ _alpha = np.array((
 ))
 
 
-def dip(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
+def dipstat(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
     """
     Hartigan & Hartigan's dip statistic
 
@@ -72,7 +72,7 @@ def dip(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
         raise TypeError("x should be one-dimensional")
     if sort_x:
         x = np.sort(x)
-    elif not (x.flags.c_contigous or x.flags.f_contiguous):
+    elif not (x.flags.c_contiguous or x.flags.c_contiguous):
         x = np.copy(x, order='C')
     if full_output:
         res = _diptest.diptest_full(x, allow_zero, debug)
@@ -85,7 +85,15 @@ def dip(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
     return _diptest.diptest(x, allow_zero, debug)
 
 
-def diptest(x, allow_zero=True, boot_pval=False, n_boot=10000, n_threads=None, seed=None):
+def diptest(
+    x,
+    sort_x=True,
+    allow_zero=True,
+    boot_pval=False,
+    n_boot=10000,
+    n_threads=None,
+    seed=None
+):
     """
     Hartigan & Hartigan's dip test for unimodality.
 
@@ -98,6 +106,8 @@ def diptest(x, allow_zero=True, boot_pval=False, n_boot=10000, n_threads=None, s
     ----------
     x : np.ndarray
         the input samples
+    sort_x : bool, default=True
+        if False x is assumed to already be sorted in ascending order
     allow_zero : boolean, default=True
         if True the minimum value of the test statistic is
         allowed to be zero in cases where n <= 3 or all values in x
@@ -130,8 +140,8 @@ def diptest(x, allow_zero=True, boot_pval=False, n_boot=10000, n_threads=None, s
         The Annals of Statistics.
 
     """
-    n = x.shape[0]
-    dip = _diptest.diptest(x, allow_zero=allow_zero)
+    n = x.size
+    dip = dipstat(x, allow_zero=allow_zero, sort_x=sort_x)
 
     if n <= 3:
         warnings.warn('Dip test is not valid for n <= 3')
