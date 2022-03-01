@@ -172,57 +172,44 @@ double diptest_pval_mt(
         seed = rd();
     }
 
-    std::unique_ptr<int[]> ifault(new int[n_threads]);
-    std::unique_ptr<int[]> lo_hi(new int[n_threads * 4]);
-    std::unique_ptr<int[]> gcm(new int[n * n_threads]);
-    std::unique_ptr<int[]> lcm(new int[n * n_threads]);
-    std::unique_ptr<int[]> mn(new int[n * n_threads]);
-    std::unique_ptr<int[]> mj(new int[n * n_threads]);
-    std::unique_ptr<bool[]> dips(new bool[n_boot]);
-
     // allocate whole sample block in one go.
     double* sample = details::std_uniform(n_boot, n, seed);
-    double* p_sample;
+    std::unique_ptr<bool[]> dips(new bool[n_boot]);
 
-    // private pointers for the threads to use
+#pragma omp parallel num_threads(n_threads) shared(dips)
+    {
+    int ifault = 0;
     double* p_sample_end;
-    int* p_lo_hi;
-    int* p_ifault;
-    int* p_gcm;
-    int* p_lcm;
-    int* p_mn;
-    int* p_mj;
-    int64_t p_offset;
-    int p_thread_id;
+    double* p_sample;
+    std::unique_ptr<int[]> lo_hi(new int[4]);
+    std::unique_ptr<int[]> gcm(new int[n]);
+    std::unique_ptr<int[]> lcm(new int[n]);
+    std::unique_ptr<int[]> mn(new int[n]);
+    std::unique_ptr<int[]> mj(new int[n]);
 
-    #pragma omp parallel for private(p_sample, p_sample_end, p_lo_hi, p_ifault, p_gcm, p_lcm, p_mn, p_mj, p_offset) num_threads(n_threads)
-    for (int64_t i = 0; i < n_boot; i++) {
-        // each thread get a memory block of size `n`
-        // the below is bookkeeping to assign the correct block to each thread
-        p_thread_id = omp_get_thread_num();
-        p_offset = p_thread_id * n;
-        p_lo_hi = lo_hi.get() + (p_thread_id * 4);
-        p_gcm = gcm.get() + p_offset;
-        p_lcm = lcm.get() + p_offset;
-        p_mn = mn.get() + p_offset;
-        p_mj = mj.get() + p_offset;
-        p_sample = sample + (i * n);
-        p_sample_end = p_sample + n;
-        // sort the allocated block for this bootstrap sample
-        std::sort(p_sample, p_sample_end);
-        dips[i] = dipstat <=  diptst(
-            p_sample,
-            n,
-            p_lo_hi,
-            ifault.get() + p_thread_id,
-            p_gcm,
-            p_lcm,
-            p_mn,
-            p_mj,
-            allow_zero,
-            debug
-        );
-    }
+
+        #pragma omp for
+        for (int64_t i = 0; i < n_boot; i++) {
+            // each thread get a memory block of size `n`
+            // the below is bookkeeping to assign the correct block to each thread
+            p_sample = sample + (i * n);
+            p_sample_end = p_sample + n;
+            // sort the allocated block for this bootstrap sample
+            std::sort(p_sample, p_sample_end);
+            dips[i] = dipstat <=  diptst(
+                p_sample,
+                n,
+                lo_hi.get(),
+                &ifault,
+                gcm.get(),
+                lcm.get(),
+                mn.get(),
+                mj.get(),
+                allow_zero,
+                debug
+            );
+        }
+    } // pragma parallel
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
 
     delete[] sample;
