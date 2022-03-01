@@ -10,14 +10,17 @@
 extern "C" {
 #include <diptest/diptest.h>
 }
-#include <omp.h>
-#include <cmath>             // NAN
-#include <stdexcept>         // runtime_error
+
 #include <algorithm>         // sort
-#include <random>            // mt19937_64, uniform_real_distribution
+#include <cmath>             // NAN
 #include <numeric>           // accumulate
 #include <memory>            // unique_ptr
+#include <random>            // mt19937_64, uniform_real_distribution
+#include <stdexcept>         // runtime_error
 
+#if defined(DIPTEST_HAS_OPENMP_SUPPORT)
+#include <omp.h>
+#endif
 
 #if defined(_WIN32) || defined(_WIN64) || defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__) || defined(__BORLANDC__)
 #define OS_WIN

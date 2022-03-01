@@ -77,6 +77,11 @@ pybind11_add_module(${MODNAME}
 )
 
 IF (OpenMP_CXX_FOUND)
+    TARGET_COMPILE_DEFINITIONS(
+        ${MODNAME}
+        PUBLIC
+            DIPTEST_HAS_OPENMP_SUPPORT=TRUE
+    )
     TARGET_LINK_LIBRARIES(
         ${MODNAME}
         PRIVATE
@@ -93,7 +98,7 @@ TARGET_COMPILE_DEFINITIONS(
 
 IF(DEFINED ENV{DIPTEST_DEV_MODE} OR DIPTEST_DEV_MODE)
     TARGET_COMPILE_OPTIONS(${MODNAME}
-        INTERFACE
+        PRIVATE
             -Wall
             -Wextra
             -Wunused-variable

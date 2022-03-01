@@ -158,6 +158,7 @@ double diptest_pval(
     return p_val;
 } // diptest_pval
 
+#if defined(DIPTEST_HAS_OPENMP_SUPPORT)
 double diptest_pval_mt(
     const double dipstat,
     const int64_t n,
@@ -215,6 +216,7 @@ double diptest_pval_mt(
     delete[] sample;
     return p_val;
 } // diptest_pval_mt
+#endif
 
 
 namespace bindings {
@@ -252,6 +254,7 @@ void bind_diptest_pval(py::module &m) {
     );
 }
 
+#if defined(DIPTEST_HAS_OPENMP_SUPPORT)
 void bind_diptest_pval_mt(py::module &m) {
     m.def(
         "diptest_pval_mt",
@@ -265,6 +268,7 @@ void bind_diptest_pval_mt(py::module &m) {
         py::arg("n_threads") = 4
     );
 }
+#endif
 
 }  // namespace bindings
 }  // namespace diptest

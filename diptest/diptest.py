@@ -5,6 +5,13 @@ import numpy as np
 
 from diptest.lib import _diptest
 
+try:
+    from diptest.lib._diptest import diptest_pval_mt
+    _mt_support = True
+except ImportError:
+    _mt_support = False
+
+
 # [len(N), len(SIG)] table of critical values
 _cdir = os.path.dirname(os.path.realpath(__file__))
 _crit_vals = np.loadtxt(os.path.join(_cdir, 'dip_crit.txt'))
@@ -150,6 +157,7 @@ def diptest(
     elif boot_pval:
         n_threads = n_threads or 0
         if n_threads > 1:
+        if n_threads > 1 and _mt_support:
             pval = _diptest.diptest_pval_mt(
                 dipstat=dip,
                 n=n,
@@ -159,6 +167,8 @@ def diptest(
                 n_threads=n_threads
             )
             return dip, pval
+        elif not _mt_support:
+            warnings.warn("Extension was compiled without parallelisation support (OpenMP was not found), ignoring ``n_threads``")
         pval = _diptest.diptest_pval(
             dipstat=dip,
             n=n,

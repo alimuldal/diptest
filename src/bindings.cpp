@@ -11,7 +11,9 @@ PYBIND11_MODULE(EXTENSION_MODULE_NAME, m) {
     bind_diptest(m);
     bind_diptest_full(m);
     bind_diptest_pval(m);
+#if defined(DIPTEST_HAS_OPENMP_SUPPORT)
     bind_diptest_pval_mt(m);
+#endif
 
 #if not defined OS_WIN
   #ifdef DIPTEST_VERSION_INFO
