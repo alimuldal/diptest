@@ -10,6 +10,7 @@
 extern "C" {
 #include <diptest/diptest.h>
 }
+#include <omp.h>
 #include <cmath>             // NAN
 #include <stdexcept>         // runtime_error
 #include <algorithm>         // sort
@@ -54,7 +55,7 @@ double diptest_pval(
     const int64_t n_boot,
     int allow_zero,
     int debug,
-    int seed
+    int64_t seed
 );
 
 double diptest_pval_mt(
@@ -63,8 +64,8 @@ double diptest_pval_mt(
     const int64_t n_boot,
     int allow_zero,
     int debug,
-    int seed,
-    int n_threads
+    int64_t seed,
+    size_t n_threads
 
 );
 

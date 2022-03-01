@@ -113,7 +113,7 @@ double diptest_pval(
     const int64_t n_boot,
     int allow_zero,
     int debug,
-    int seed
+    int64_t seed
 ) {
     std::random_device rd;
     if (seed == 0) {
@@ -125,11 +125,31 @@ double diptest_pval(
     double* p_sample = sample;
     double* sample_end = nullptr;
 
+    double dip;
+    int ifault = 0;
+    int lo_hi[4] = {0, 0, 0, 0};
+    std::unique_ptr<int[]> gcm(new int[n]);
+    std::unique_ptr<int[]> lcm(new int[n]);
+    std::unique_ptr<int[]> mn(new int[n]);
+    std::unique_ptr<int[]> mj(new int[n]);
     std::unique_ptr<int[]> dips(new int[n_boot]);
+
     for (int64_t i = 0; i < n_boot; i++) {
         sample_end = sample + n;
         std::sort(sample, sample_end);
-        dips[i] = dipstat <= details::diptest(sample, n, allow_zero, debug);
+        dip = diptst(
+            sample,
+            n,
+            &lo_hi[0],
+            &ifault,
+            gcm.get(),
+            lcm.get(),
+            mn.get(),
+            mj.get(),
+            allow_zero,
+            debug
+        );
+        dips[i] = dipstat <= dip;
         sample = sample_end;
     }
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
@@ -144,25 +164,64 @@ double diptest_pval_mt(
     const int64_t n_boot,
     int allow_zero,
     int debug,
-    int seed,
-    int n_threads
+    int64_t seed,
+    size_t n_threads
 ) {
     std::random_device rd;
     if (seed == 0) {
         seed = rd();
     }
 
+    std::unique_ptr<int[]> ifault(new int[n_threads]);
+    std::unique_ptr<int[]> lo_hi(new int[n_threads * 4]);
+    std::unique_ptr<int[]> gcm(new int[n * n_threads]);
+    std::unique_ptr<int[]> lcm(new int[n * n_threads]);
+    std::unique_ptr<int[]> mn(new int[n * n_threads]);
+    std::unique_ptr<int[]> mj(new int[n * n_threads]);
     std::unique_ptr<bool[]> dips(new bool[n_boot]);
+
+    // allocate whole sample block in one go.
     double* sample = details::std_uniform(n_boot, n, seed);
     double* p_sample;
-    double* p_sample_end;
 
-    #pragma omp parallel for private(p_sample, p_sample_end) num_threads(n_threads)
+    // private pointers for the threads to use
+    double* p_sample_end;
+    int* p_lo_hi;
+    int* p_ifault;
+    int* p_gcm;
+    int* p_lcm;
+    int* p_mn;
+    int* p_mj;
+    int64_t p_offset;
+    int p_thread_id;
+
+    #pragma omp parallel for private(p_sample, p_sample_end, p_lo_hi, p_ifault, p_gcm, p_lcm, p_mn, p_mj, p_offset) num_threads(n_threads)
     for (int64_t i = 0; i < n_boot; i++) {
+        // each thread get a memory block of size `n`
+        // the below is bookkeeping to assign the correct block to each thread
+        p_thread_id = omp_get_thread_num();
+        p_offset = p_thread_id * n;
+        p_lo_hi = lo_hi.get() + (p_thread_id * 4);
+        p_gcm = gcm.get() + p_offset;
+        p_lcm = lcm.get() + p_offset;
+        p_mn = mn.get() + p_offset;
+        p_mj = mj.get() + p_offset;
         p_sample = sample + (i * n);
         p_sample_end = p_sample + n;
+        // sort the allocated block for this bootstrap sample
         std::sort(p_sample, p_sample_end);
-        dips[i] = dipstat <= details::diptest(p_sample, n, allow_zero, debug);
+        dips[i] = dipstat <=  diptst(
+            p_sample,
+            n,
+            p_lo_hi,
+            ifault.get() + p_thread_id,
+            p_gcm,
+            p_lcm,
+            p_mn,
+            p_mj,
+            allow_zero,
+            debug
+        );
     }
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
 
