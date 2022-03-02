@@ -62,9 +62,6 @@ def dipstat(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
     res : dict, optional
         returned if full_output == True.
         Contains the following fields:
-            xs:     sorted input data as doubles
-            n:      len(x)
-            dip:    dip statistic
             lo:     indices of lower end of modal interval
             hi:     indices of upper end of modal interval
             xl:     lower end of modal interval
@@ -77,7 +74,10 @@ def dipstat(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
     Hartigan, J. A., & Hartigan, P. M. (1985). The Dip Test of Unimodality.
         The Annals of Statistics.
     """
-    if (x.ndim > 1 and (x.shape[1] * x.shape[0] != x.size)):
+    if ((x.ndim > 1) and not (
+            (x.shape[1] == 1) or (x.shape[0]== 1)
+        )
+    ):
         raise TypeError("x should be one-dimensional")
     if sort_x:
         x = np.sort(x)
@@ -88,7 +88,7 @@ def dipstat(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
         dip = res.pop('dip')
         _gcm = res.pop('_gcm')
         res['gcm'] = _gcm[:res.pop('_lh_2')]
-        _lcm = res.pop('_;cm')
+        _lcm = res.pop('_lcm')
         res['lcm'] = _lcm[:res.pop('_lh_3')]
         return dip, res
     return _diptest.diptest(x, allow_zero, debug)
