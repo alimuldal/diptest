@@ -65,12 +65,13 @@ py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
 
     auto gcm = py::array_t<int>(N);
     auto lcm = py::array_t<int>(N);
-    auto mn = py::array_t<int>(N);
-    auto mj = py::array_t<int>(N);
     int* gcm_ptr = gcm.mutable_data();
     int* lcm_ptr = lcm.mutable_data();
-    int* mn_ptr = mn.mutable_data();
-    int* mj_ptr = mj.mutable_data();
+
+    std::unique_ptr<int[]> mn(new int[N]);
+    std::unique_ptr<int[]> mj(new int[N]);
+    int* mn_ptr = mn.get();
+    int* mj_ptr = mj.get();
 
     double dip = diptst(
         x_ptr,
@@ -97,9 +98,7 @@ py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
         "lo"_a = lo_hi[0],
         "hi"_a = lo_hi[1],
         "xl"_a = x.at(lo_hi[0]),
-        "xh"_a = x.at(lo_hi[1]),
-        "mn"_a = mn,
-        "mj"_a = mj,
+        "xu"_a = x.at(lo_hi[1]),
         "_gcm"_a = gcm,
         "_lcm"_a = lcm,
         "_lh_2"_a = lo_hi[2],
