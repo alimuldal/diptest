@@ -14,18 +14,20 @@ except ImportError:
 
 # [len(N), len(SIG)] table of critical values
 _cdir = os.path.dirname(os.path.realpath(__file__))
-_crit_vals = np.loadtxt(os.path.join(_cdir, 'dip_crit.txt'))
+_CRIT_VALS = np.loadtxt(os.path.join(_cdir, 'dip_crit.txt'))
 
-_sample_size = np.array((
+_SAMPLE_SIZE = np.array((
     4, 5, 6, 7, 8, 9, 10, 15, 20, 30, 50, 100,
     200, 500, 1000, 2000, 5000, 10000, 20000, 40000, 72000
 ))
 
-_alpha = np.array((
+_ALPHA = np.array((
     0., 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9,
     0.95, 0.98, 0.99, 0.995, 0.998, 0.999, 0.9995, 0.9998 , 0.9999,
     0.99995, 0.99998, 0.99999, 1.
 ))
+
+_MAX_SAMPLE_SIZE = 72000
 
 
 def dipstat(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
@@ -152,11 +154,10 @@ def diptest(
 
     if n <= 3:
         warnings.warn('Dip test is not valid for n <= 3')
-        pval = 1.0
+        return dip, 1.0
 
-    elif boot_pval:
+    if boot_pval:
         n_threads = n_threads or 0
-        if n_threads > 1:
         if n_threads > 1 and _mt_support:
             pval = _diptest.diptest_pval_mt(
                 dipstat=dip,
@@ -178,23 +179,27 @@ def diptest(
         )
         return dip, pval
 
+    i1 = int(_SAMPLE_SIZE.searchsorted(n, side='left'))
+    i0 = i1 - 1
+
+    # if n falls outside the range of tabulated sample sizes, use the
+    # critical values for the nearest tabulated n (i.e. treat them as
+    # 'asymptotic')
+    i0 = max(0, i0)
+    i1 = min(20, i1)
+
+    # interpolate on sqrt(n)
+    n0, n1 = _SAMPLE_SIZE[[i0, i1]]
+
+    y0 = np.sqrt(n0) * _CRIT_VALS[i0]
+    sD = np.sqrt(n) * dip
+    if (i0 == i1):
+        xp = y0
     else:
-        i1 = _sample_size.searchsorted(n, side='left')
-        i0 = i1 - 1
-
-        # if n falls outside the range of tabulated sample sizes, use the
-        # critical values for the nearest tabulated n (i.e. treat them as
-        # 'asymptotic')
-        i0 = max(0, i0)
-        i1 = min(_sample_size.shape[0] - 1, i1)
-
-        # interpolate on sqrt(n)
-        n0, n1 = _sample_size[[i0, i1]]
         fn = float(n - n0) / (n1 - n0)
-        y0 = np.sqrt(n0) * _crit_vals[i0]
-        y1 = np.sqrt(n1) * _crit_vals[i1]
-        sD = np.sqrt(n) * dip
+        y1 = np.sqrt(n1) * _CRIT_VALS[i1]
+        xp = y0 + fn * (y1 - y0)
 
-        pval = 1. - np.interp(sD, y0 + fn * (y1 - y0), _alpha)
+    pval = 1. - np.interp(sD, xp, _ALPHA)
 
     return dip, pval
