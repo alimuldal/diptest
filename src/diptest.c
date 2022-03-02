@@ -52,8 +52,8 @@ double diptst(
     int *mn,
     int *mj,
 	const int min_is_0,
-    const int debug)
-{
+    const int debug
+) {
 #define low   lo_hi[0]
 #define high  lo_hi[1]
 #define l_gcm lo_hi[2]
@@ -299,7 +299,7 @@ LOOP_Start:
       --- Martin Maechler, Statistics, ETH Zurich, July 30 1994 ---------- */
     if (low == gcm[ig] && high == lcm[ih]) {
 #if defined (DIPTEST_DEBUG)
-      if(debug) printf("No improvement in  low = %ld  nor  high = %ld --> END\n", low, high);
+      if(debug) printf("No improvement in  low = %d  nor  high = %d --> END\n", low, high);
 #endif // DIPTEST_DEBUG
     } else {
 	low  = gcm[ig];
