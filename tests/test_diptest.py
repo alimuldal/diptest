@@ -1,8 +1,17 @@
+import os
+import warnings
 import pytest
 import numpy as np
+import multiprocessing
 
 import diptest as dt
-import diptest.lib._diptest as _dt
+from diptest.diptest import _mt_support
+
+_cdir = os.path.dirname(os.path.realpath(__file__))
+_TEST_SAMPLE = np.load(os.path.join(_cdir, 'test_sample.npy'))
+_TEST_SAMPLE_DIP = 0.017877630831641567
+_TEST_SAMPLE_PVAL = 0.02938
+_TEST_SAMPLE_TABLE_PVAL = 0.0320754126767796
 
 
 def _generator(N, distance=0.5, sigma=1.0):
@@ -155,3 +164,62 @@ def test_dipstat_2d():
     sample_2d = sample.reshape(5, 4).copy()
     with pytest.raises(TypeError):
         dip = dt.dipstat(sample_2d, sort_x=False)
+
+def test_diptest_default():
+    """Test diptest.diptest with default settings."""
+    with np.errstate(all='raise'):
+        dip, pval = dt.diptest(_TEST_SAMPLE)
+    assert np.isclose(dip, _TEST_SAMPLE_DIP)
+    assert np.isclose(pval, _TEST_SAMPLE_TABLE_PVAL)
+
+
+def test_diptest_warning():
+    """Test diptest.diptest warning for small values."""
+    with warnings.catch_warnings(record=True) as w:
+        # Cause all warnings to always be triggered.
+        warnings.simplefilter("always")
+        # Trigger a warning.
+        _, pval = dt.diptest(_generator(3), sort_x=True)
+
+        assert w[0].message.args[0] == "Dip test is not valid for n <= 3"
+        assert np.isclose(pval, 1.0)
+
+
+def test_diptest_smallest_table_value():
+    """Test diptest.diptest with default settings."""
+    with np.errstate(all='raise'):
+        _ = dt.diptest(_generator(4))
+
+
+def test_diptest_larget_table_value():
+    """Test diptest.diptest with default settings."""
+    with np.errstate(all='raise'):
+        _ = dt.diptest(_generator(72000))
+
+
+def test_diptest_bootstrap():
+    """Test diptest.diptest with bootstrap pvalue"""
+    dip, pv = dt.diptest(
+        _TEST_SAMPLE,
+        boot_pval=True,
+        n_boot=10000,
+        n_threads=1,
+        seed=42
+    )
+    assert np.isclose(dip, _TEST_SAMPLE_DIP)
+    assert abs(_TEST_SAMPLE_PVAL - pv) < 5e3
+
+
+if _mt_support:
+    def test_diptest_bootstrap_mt():
+        cores = multiprocessing.cpu_count()
+        if _mt_support and cores > 1:
+            dip, pv = dt.diptest(
+                _TEST_SAMPLE,
+                boot_pval=True,
+                n_boot=10000,
+                n_threads=cores,
+                seed=42
+            )
+            assert np.isclose(dip, _TEST_SAMPLE_DIP)
+            assert abs(_TEST_SAMPLE_PVAL - pv) < 5e3
