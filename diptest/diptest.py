@@ -1,5 +1,6 @@
 import os
 import warnings
+import multiprocessing
 
 import numpy as np
 
@@ -131,7 +132,8 @@ def diptest(
     n_threads : int, default=None
         number of threads to use when computing the p-value using bootstrap.
         Defaults to 4, if set to 1 the computation is
-        performed single threaded
+        performed single threaded. -1 will set the number of threads equal to
+        all available cores
     seed : int, default=None
         seed used for the generation of the uniform samples when computing the
         p-value.
@@ -156,8 +158,11 @@ def diptest(
         warnings.warn('Dip test is not valid for n <= 3')
         return dip, 1.0
 
+
     if boot_pval:
         n_threads = n_threads or 0
+        if n_threads == -1:
+            n_threads = multiprocessing.cpu_count()
         if n_threads > 1 and _mt_support:
             pval = _diptest.diptest_pval_mt(
                 dipstat=dip,
@@ -168,7 +173,7 @@ def diptest(
                 n_threads=n_threads
             )
             return dip, pval
-        elif not _mt_support:
+        elif n_threads > 1 and not _mt_support:
             warnings.warn("Extension was compiled without parallelisation support (OpenMP was not found), ignoring ``n_threads``")
         pval = _diptest.diptest_pval(
             dipstat=dip,
