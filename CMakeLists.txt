@@ -4,15 +4,6 @@ IF (NOT DEFINED DIPTEST_VERSION_INFO)
     SET(DIPTEST_VERSION_INFO "0.1.0")
 ENDIF ()
 
-SET(DEFAULT_BUILD_TYPE Release)
-IF (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-  MESSAGE(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
-  SET(CMAKE_BUILD_TYPE "${DEFAULT_BUILD_TYPE}" CACHE STRING "Choose the type of build." FORCE)
-  # Set the possible values of build type for cmake-gui
-  SET_PROPERTY(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
-    "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
-ENDIF ()
-
 PROJECT(
     diptest
     VERSION ${DIPTEST_VERSION_INFO}
@@ -37,42 +28,25 @@ FIND_PACKAGE(OpenMP)
 ################################################################################
 #                                     FLAGS                                    #
 ################################################################################
-IF (DIPTEST_BUILDING_WHEELS)
-    # disable architecture flags
-    SET(DIPTEST_RELEASE_FLAGS "")
-    MESSAGE(STATUS "diptest: Building for non-native host")
-ELSE ()
-    SET(DIPTEST_RELEASE_FLAGS "")
-    INCLUDE(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE)
-    IF(COMPILER_SUPPORTS_MARCH_NATIVE)
-        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -march=native")
-    ENDIF()
-    CHECK_CXX_COMPILER_FLAG("-mtune=native" COMPILER_SUPPORTS_MTUNE_NATIVE)
-    IF(COMPILER_SUPPORTS_MTUNE_NATIVE)
-        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -mtune=native")
-    ENDIF()
-    CHECK_CXX_COMPILER_FLAG("-ftree-vectorize" COMPILER_SUPPORTS_FTREE)
-    IF(COMPILER_SUPPORTS_FTREE)
-        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -ftree-vectorize")
-    ENDIF()
-    CHECK_CXX_COMPILER_FLAG("-mavx" COMPILER_SUPPORTS_MAVX2)
-    IF(COMPILER_SUPPORTS_MAVX2)
-        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -mavx")
-    ENDIF()
-    CHECK_CXX_COMPILER_FLAG("-mavx2" COMPILER_SUPPORTS_MAVX2)
-    IF(COMPILER_SUPPORTS_MAVX2)
-        SET(DIPTEST_RELEASE_FLAGS "${DIPTEST_RELEASE_FLAGS} -mavx2")
-    ENDIF()
-ENDIF()
+INCLUDE(GNUInstallDirs)
+
+SET(CMAKE_MODULE_PATH_SAVED ${CMAKE_MODULE_PATH})
+LIST(INSERT CMAKE_MODULE_PATH 0 "${PROJECT_SOURCE_DIR}/cmake")
+
+SET(DEFAULT_BUILD_TYPE "Release")
+# Set build type to Release if not specified
+INCLUDE(BuildType)
+
+IF (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    # error C2039: '_snprintf': is not a member of 'std'
+    ADD_DEFINITIONS(-DHAVE_SNPRINTF)
+ENDIF ()
 
 ################################################################################
 #                               PYTHON EXTENSION                               #
 ################################################################################
 SET(MODNAME "_diptest")
 ADD_DEFINITIONS(-DEXTENSION_MODULE_NAME=${MODNAME})
-
-SET(DIPTEST_EXT_PATH"${PROJECT_SOURCE_DIR}/mmu/core/bindings")
 
 pybind11_add_module(${MODNAME}
     MODULE
