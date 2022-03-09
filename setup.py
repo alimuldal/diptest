@@ -13,9 +13,9 @@ modification, are permitted according to the terms listed in the file
 LICENSE.
 """
 
+import os
 import pybind11
 from setuptools import find_packages
-import skbuild
 from skbuild import setup
 
 NAME = 'diptest'
@@ -64,6 +64,10 @@ release = {is_release!s}
 
 if __name__ == '__main__':
     write_version_py()
+    if 'DIPTEST_MANUAL_BUILD' in os.environ:
+        from setuptools import setup
+        print('Diptest: running pip install without extension')
+
     setup(
         name=NAME,
         packages=find_packages(),
