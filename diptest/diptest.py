@@ -1,5 +1,7 @@
 import numpy as np
-from diptest import _diptest
+import sys
+sys.path.append(".")
+import _diptest
 import warnings
 import os
 
