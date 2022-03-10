@@ -1,7 +1,8 @@
 import numpy as np
-from diptest import _diptest
+import sys, os
+sys.path.append(os.path.dirname(__file__))
+import _diptest
 import warnings
-import os
 
 
 def dip(x, full_output=False, min_is_0=True, x_is_sorted=False, debug=0):
