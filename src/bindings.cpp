@@ -15,7 +15,7 @@ PYBIND11_MODULE(EXTENSION_MODULE_NAME, m) {
     bind_diptest_pval_mt(m);
 #endif
 
-#if not defined OS_WIN
+#ifndef OS_WIN
   #ifdef DIPTEST_VERSION_INFO
       m.attr("__version__") = MACRO_STRINGIFY(DIPTEST_VERSION_INFO);
   #else

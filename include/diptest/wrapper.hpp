@@ -27,7 +27,7 @@ extern "C" {
 #endif
 
 // handle error C2059: syntax error: ';'  on windows for this Macro
-#if not defined(OS_WIN)
+#ifndef OS_WIN
   #define STRINGIFY(x) #x
   #define MACRO_STRINGIFY(x) STRINGIFY(x)
 #endif
