@@ -1,5 +1,9 @@
 # diptest
 
+[![Linux Build](https://github.com/RUrlus/diptest/actions/workflows/linux.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/linux.yml)
+[![Windows Build](https://github.com/RUrlus/diptest/actions/workflows/windows.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/windows.yml)
+[![MacOS build](https://github.com/RUrlus/diptest/actions/workflows/macos.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/macos.yml)
+
 A Python/C implementation of Hartigan & Hartigan's dip test for unimodality.
 
 The dip test measures multimodality in a sample by the maximum difference, over
@@ -15,7 +19,7 @@ distribution.
 Parallelisation of the p-value computation using bootstrapping is offered using OpenMP.
 OpenMP is disabled by default but can be enabled, see installation section
 below.
- Multi-threading can be turned of by setting the number of threads equal to 1. See the docstring of `diptest` for details.
+ Multi-threading can be turned off by setting the number of threads equal to 1. See the docstring of `diptest` for details.
 
 
 ## Installation

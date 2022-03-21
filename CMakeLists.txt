@@ -23,7 +23,9 @@ SET(CMAKE_CXX_STANDARD 11)
 SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 FIND_PACKAGE(pybind11 CONFIG REQUIRED)
-FIND_PACKAGE(OpenMP)
+IF (DIPTEST_ENABLE_OPENMP)
+    FIND_PACKAGE(OpenMP REQUIRED)
+ENDIF ()
 
 ################################################################################
 #                                     FLAGS                                    #
@@ -60,7 +62,7 @@ IF (DIPTEST_ENABLE_DEBUG)
     TARGET_COMPILE_DEFINITIONS(${MODNAME} PRIVATE DIPTEST_DEBUG=TRUE)
 ENDIF ()
 
-IF (DIPTEST_ENABLE_OPENMP AND OpenMP_CXX_FOUND)
+IF (OpenMP_CXX_FOUND)
     MESSAGE(STATUS "diptest: Building with OpenMP support")
     TARGET_COMPILE_DEFINITIONS(
         ${MODNAME}
