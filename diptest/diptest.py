@@ -75,15 +75,19 @@ def dipstat(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
     Hartigan, J. A., & Hartigan, P. M. (1985). The Dip Test of Unimodality.
         The Annals of Statistics.
     """
+    if sort_x:
+        x = np.sort(x)
+    elif not isinstance(x, np.ndarray):
+        x = np.asarray(x, order='C')
+    elif not (x.flags.c_contiguous or x.flags.c_contiguous):
+        x = np.copy(x, order='C')
+
     if ((x.ndim > 1) and not (
             (x.shape[1] == 1) or (x.shape[0]== 1)
         )
     ):
         raise TypeError("x should be one-dimensional")
-    if sort_x:
-        x = np.sort(x)
-    elif not (x.flags.c_contiguous or x.flags.c_contiguous):
-        x = np.copy(x, order='C')
+
     if full_output:
         res = _diptest.diptest_full(x, allow_zero, debug)
         dip = res.pop('dip')
@@ -91,8 +95,8 @@ def dipstat(x, full_output=False, allow_zero=True, sort_x=True, debug=0):
         res['gcm'] = _gcm[:res.pop('_lh_2')]
         _lcm = res.pop('_lcm')
         res['lcm'] = _lcm[:res.pop('_lh_3')]
-        return dip, res
-    return _diptest.diptest(x, allow_zero, debug)
+        return float(dip), res
+    return float(_diptest.diptest(x, allow_zero, debug))
 
 
 def diptest(
@@ -207,4 +211,4 @@ def diptest(
 
     pval = 1. - np.interp(sD, xp, _ALPHA)
 
-    return dip, pval
+    return dip, float(pval)
