@@ -32,7 +32,7 @@ below.
 
 To enable OpenMP use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DIPTEST_ENABLE_OPENMP=ON" pip3 install . -v
+    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_OPENMP=ON" pip3 install . -v
 ```
 
 #### Debug installation
@@ -46,7 +46,7 @@ To enable a debug build use:
 
 To enable the debug print statements use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DIPTEST_ENABLE_DEBUG=ON" pip3 install . -v
+    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_DEBUG=ON" pip3 install . -v
 ```
 then call the function with debug argument set to a value greater than zero:
 ```python3
