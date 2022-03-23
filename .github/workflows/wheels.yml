@@ -2,11 +2,6 @@ name: Wheels
 
 on:
   workflow_dispatch:
-  pull_request:
-  push:
-    branches:
-     - stable
-     - unstable
   release:
     types:
       - published
