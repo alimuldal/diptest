@@ -4,7 +4,7 @@
 [![Windows Build](https://github.com/RUrlus/diptest/actions/workflows/windows.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/windows.yml)
 [![MacOS build](https://github.com/RUrlus/diptest/actions/workflows/macos.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/macos.yml)
 
-A Python/C implementation of Hartigan & Hartigan's dip test for unimodality.
+A Python/C(++) implementation of Hartigan & Hartigan's dip test for unimodality.
 
 The dip test measures multimodality in a sample by the maximum difference, over
 all sample points, between the empirical distribution function, and the
@@ -23,30 +23,56 @@ below.
 
 
 ## Installation
+
+diptest can be installed from PyPi using:
+
 ```bash
-    cd diptest
-    pip install .
+    pip install diptest
 ```
+
+Wheels containing the pre-compiled extension are available for:
+
+- Windows x84-64 - CPython 3.7 - 3.10
+- Linux x84-64 - CPython 3.7 - 3.10
+- MacOS x84-64 - CPython 3.7 - 3.10
+- MacOS ARM-64 - CPython 3.8 - 3.10
+
+If you have a C/C++ compiler available it is advised to install without
+the wheel as this enables architecture specific optimisations.
+
+```bash
+    pip install diptest --no-binary diptest
+```
+
+Compatible compilers through Pybind11:
+
+- Clang/LLVM 3.3 or newer (for Apple Xcode's clang, this is 5.0.0 or newer)
+- GCC 4.8 or newer
+- Microsoft Visual Studio 2015 Update 3 or newer
+- Intel classic C++ compiler 18 or newer (ICC 20.2 tested in CI)
+- Cygwin/GCC (previously tested on 2.5.1)
+- NVCC (CUDA 11.0 tested in CI)
+- NVIDIA PGI (20.9 tested in CI)
 
 #### Enable OpenMP
 
 To enable OpenMP use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_OPENMP=ON" pip3 install . -v
+    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_OPENMP=ON" pip install diptest --no-binary diptest
 ```
 
 #### Debug installation
 
 To enable a debug build use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DCMAKE_BUILD_TYPE=Debug" pip3 install . -v
+    SKBUILD_CONFIGURE_OPTIONS="-DCMAKE_BUILD_TYPE=Debug" pip install diptest --no-binary diptest
 ```
 
 #### Debug printing
 
 To enable the debug print statements use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_DEBUG=ON" pip3 install . -v
+    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_DEBUG=ON" pip install diptest --no-binary diptest
 ```
 then call the function with debug argument set to a value greater than zero:
 ```python3
@@ -63,6 +89,24 @@ The first only computes Hartigan's dip statistic. `diptest` computes both the
 statistic and the p-value. The p-value can be computed using interpolation of a
 critical value table (default) or by bootstrapping the null hypothesis.
 Note that for larger samples (N > 1e5) this is quite compute and memory intensive.
+
+```python3
+    import numpy as np
+    import diptest
+
+    # generate some bimodal random draws
+    N = 1000
+    hN = N // 2
+    x = np.empty(N, dtype=np.float64)
+    x[:hN] = np.random.normal(0.4, 1.0, hN)
+    x[hN:] = np.random.normal(-0.4, 1.0, hN)
+
+    # only the dip statistic
+    dip = diptest.dipstat(x)
+    
+    # both the dip statistic and p-value
+    dip, pval = diptest.diptest(x)
+```
 
 ## References
 
