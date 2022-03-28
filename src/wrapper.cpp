@@ -10,12 +10,12 @@ namespace diptest {
 
 namespace details {
 
-double* std_uniform(const int64_t n_boot, const int64_t n, const int64_t seed) {
+std::unique_ptr<double[]> std_uniform(const int64_t n_boot, const int64_t n, const int64_t seed) {
     std::mt19937_64 rng;
     rng.seed(seed);
     std::uniform_real_distribution<double> dist(0.0, 1.0);
     int64_t size = n_boot * n;
-    double* sample = new double[size];
+    std::unique_ptr<double[]> sample(new double[size]);
     for (int64_t i = 0; i < size; i++) {
         sample[i] = dist(rng);
     }
@@ -119,9 +119,8 @@ double diptest_pval(
         seed = rd();
     }
 
-    double* sample = details::std_uniform(n_boot, n, seed);
-    // needed as we shift the original ptr
-    double* p_sample = sample;
+    std::unique_ptr<double[]> sample = details::std_uniform(n_boot, n, seed);
+    double* r_sample = sample.get();
     double* sample_end = nullptr;
 
     double dip;
@@ -134,10 +133,10 @@ double diptest_pval(
     std::unique_ptr<int[]> dips(new int[n_boot]);
 
     for (int64_t i = 0; i < n_boot; i++) {
-        sample_end = sample + n;
-        std::sort(sample, sample_end);
+        sample_end = r_sample + n;
+        std::sort(r_sample, sample_end);
         dip = diptst(
-            sample,
+            r_sample,
             n,
             &lo_hi[0],
             &ifault,
@@ -149,11 +148,9 @@ double diptest_pval(
             debug
         );
         dips[i] = dipstat <= dip;
-        sample = sample_end;
+        r_sample = sample_end;
     }
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
-
-    delete[] p_sample;
     return p_val;
 } // diptest_pval
 
@@ -173,7 +170,7 @@ double diptest_pval_mt(
     }
 
     // allocate whole sample block in one go.
-    double* sample = details::std_uniform(n_boot, n, seed);
+    std::unique_ptr<double[]> sample = details::std_uniform(n_boot, n, seed);
     std::unique_ptr<bool[]> dips(new bool[n_boot]);
 
 #pragma omp parallel num_threads(n_threads) shared(dips)
@@ -187,32 +184,29 @@ double diptest_pval_mt(
     std::unique_ptr<int[]> mn(new int[n]);
     std::unique_ptr<int[]> mj(new int[n]);
 
-
-        #pragma omp for
-        for (int64_t i = 0; i < n_boot; i++) {
-            // each thread get a memory block of size `n`
-            // the below is bookkeeping to assign the correct block to each thread
-            p_sample = sample + (i * n);
-            p_sample_end = p_sample + n;
-            // sort the allocated block for this bootstrap sample
-            std::sort(p_sample, p_sample_end);
-            dips[i] = dipstat <=  diptst(
-                p_sample,
-                n,
-                lo_hi.get(),
-                &ifault,
-                gcm.get(),
-                lcm.get(),
-                mn.get(),
-                mj.get(),
-                allow_zero,
-                debug
-            );
-        }
+    #pragma omp for
+    for (int64_t i = 0; i < n_boot; i++) {
+        // each thread get a memory block of size `n`
+        // the below is bookkeeping to assign the correct block to each thread
+        p_sample = sample.get() + (i * n);
+        p_sample_end = p_sample + n;
+        // sort the allocated block for this bootstrap sample
+        std::sort(p_sample, p_sample_end);
+        dips[i] = dipstat <=  diptst(
+            p_sample,
+            n,
+            lo_hi.get(),
+            &ifault,
+            gcm.get(),
+            lcm.get(),
+            mn.get(),
+            mj.get(),
+            allow_zero,
+            debug
+        );
+    }
     } // pragma parallel
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
-
-    delete[] sample;
     return p_val;
 } // diptest_pval_mt
 #endif

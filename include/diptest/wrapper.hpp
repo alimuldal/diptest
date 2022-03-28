@@ -45,8 +45,7 @@ namespace py = pybind11;
 namespace diptest {
 
 namespace details {
-void draw_sorted_std_uniform(double* dest, const size_t size, const size_t seed = 0);
-double* std_uniform(const int64_t n_boot, const int64_t n, const int64_t seed);
+std::unique_ptr<double[]> std_uniform(const int64_t n_boot, const int64_t n, const int64_t seed);
 double diptest(const double* x_ptr, int N, int allow_zero = 1, int debug = 0);
 }  // namespace details
 
