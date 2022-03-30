@@ -16,11 +16,11 @@ PYBIND11_MODULE(EXTENSION_MODULE_NAME, m) {
 #endif
 
 #ifndef OS_WIN
-  #ifdef DIPTEST_VERSION_INFO
-      m.attr("__version__") = MACRO_STRINGIFY(DIPTEST_VERSION_INFO);
-  #else
-      m.attr("__version__") = "dev";
-  #endif
+#ifdef DIPTEST_VERSION_INFO
+    m.attr("__version__") = MACRO_STRINGIFY(DIPTEST_VERSION_INFO);
+#else
+    m.attr("__version__") = "dev";
+#endif
 #endif
 }
 

@@ -30,18 +30,7 @@ double diptest(const double* x_ptr, int N, int allow_zero, int debug) {
     std::unique_ptr<int[]> mn(new int[N]);
     std::unique_ptr<int[]> mj(new int[N]);
 
-    double dip = diptst(
-        x_ptr,
-        N,
-        &lo_hi[0],
-        &ifault,
-        gcm.get(),
-        lcm.get(),
-        mn.get(),
-        mj.get(),
-        allow_zero,
-        debug
-    );
+    double dip = diptst(x_ptr, N, &lo_hi[0], &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
 
     if (ifault == 1) {
         throw std::runtime_error("N must be >= 1.");
@@ -49,16 +38,16 @@ double diptest(const double* x_ptr, int N, int allow_zero, int debug) {
         throw std::runtime_error("x must be sorted in ascending error.");
     }
     return dip;
-} // diptest
+}  // diptest
 
 }  // namespace details
 
-double diptest(const py::array_t<double>&x, int allow_zero, int debug) {
+double diptest(const py::array_t<double>& x, int allow_zero, int debug) {
     return details::diptest(x.data(), x.size(), allow_zero, debug);
-} // diptest
+}  // diptest
 
-py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
-    const double* x_ptr =  x.data();
+py::dict diptest_full(const py::array_t<double>& x, int allow_zero, int debug) {
+    const double* x_ptr = x.data();
     int N = x.size();
     int ifault = 0;
     int lo_hi[4] = {0, 0, 0, 0};
@@ -73,18 +62,7 @@ py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
     int* mn_ptr = mn.get();
     int* mj_ptr = mj.get();
 
-    double dip = diptst(
-        x_ptr,
-        N,
-        &lo_hi[0],
-        &ifault,
-        gcm_ptr,
-        lcm_ptr,
-        mn_ptr,
-        mj_ptr,
-        allow_zero,
-        debug
-    );
+    double dip = diptst(x_ptr, N, &lo_hi[0], &ifault, gcm_ptr, lcm_ptr, mn_ptr, mj_ptr, allow_zero, debug);
 
     if (ifault == 1) {
         throw std::runtime_error("N must be >= 1.");
@@ -92,7 +70,7 @@ py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
         throw std::runtime_error("x must be sorted in ascending error.");
     }
 
-    using namespace pybind11::literals; // to bring in the `_a` literal NOLINT
+    using namespace pybind11::literals;  // to bring in the `_a` literal NOLINT
     return py::dict(
         "dip"_a = dip,
         "lo"_a = lo_hi[0],
@@ -102,18 +80,11 @@ py::dict diptest_full(const py::array_t<double>&x, int allow_zero, int debug) {
         "_gcm"_a = gcm,
         "_lcm"_a = lcm,
         "_lh_2"_a = lo_hi[2],
-        "_lh_3"_a = lo_hi[3]
-    );
-} // diptest_full
+        "_lh_3"_a = lo_hi[3]);
+}  // diptest_full
 
-double diptest_pval(
-    const double dipstat,
-    const int64_t n,
-    const int64_t n_boot,
-    int allow_zero,
-    int debug,
-    int64_t seed
-) {
+double
+diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int allow_zero, int debug, int64_t seed) {
     std::random_device rd;
     if (seed == 0) {
         seed = rd();
@@ -135,24 +106,13 @@ double diptest_pval(
     for (int64_t i = 0; i < n_boot; i++) {
         sample_end = r_sample + n;
         std::sort(r_sample, sample_end);
-        dip = diptst(
-            r_sample,
-            n,
-            &lo_hi[0],
-            &ifault,
-            gcm.get(),
-            lcm.get(),
-            mn.get(),
-            mj.get(),
-            allow_zero,
-            debug
-        );
+        dip = diptst(r_sample, n, &lo_hi[0], &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
         dips[i] = dipstat <= dip;
         r_sample = sample_end;
     }
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
     return p_val;
-} // diptest_pval
+}  // diptest_pval
 
 #if defined(DIPTEST_HAS_OPENMP_SUPPORT)
 double diptest_pval_mt(
@@ -162,8 +122,7 @@ double diptest_pval_mt(
     int allow_zero,
     int debug,
     int64_t seed,
-    size_t n_threads
-) {
+    size_t n_threads) {
     std::random_device rd;
     if (seed == 0) {
         seed = rd();
@@ -175,66 +134,44 @@ double diptest_pval_mt(
 
 #pragma omp parallel num_threads(n_threads) shared(dips)
     {
-    int ifault = 0;
-    double* p_sample_end;
-    double* p_sample;
-    std::unique_ptr<int[]> lo_hi(new int[4]);
-    std::unique_ptr<int[]> gcm(new int[n]);
-    std::unique_ptr<int[]> lcm(new int[n]);
-    std::unique_ptr<int[]> mn(new int[n]);
-    std::unique_ptr<int[]> mj(new int[n]);
+        int ifault = 0;
+        double* p_sample_end;
+        double* p_sample;
+        std::unique_ptr<int[]> lo_hi(new int[4]);
+        std::unique_ptr<int[]> gcm(new int[n]);
+        std::unique_ptr<int[]> lcm(new int[n]);
+        std::unique_ptr<int[]> mn(new int[n]);
+        std::unique_ptr<int[]> mj(new int[n]);
 
-    #pragma omp for
-    for (int64_t i = 0; i < n_boot; i++) {
-        // each thread get a memory block of size `n`
-        // the below is bookkeeping to assign the correct block to each thread
-        p_sample = sample.get() + (i * n);
-        p_sample_end = p_sample + n;
-        // sort the allocated block for this bootstrap sample
-        std::sort(p_sample, p_sample_end);
-        dips[i] = dipstat <=  diptst(
-            p_sample,
-            n,
-            lo_hi.get(),
-            &ifault,
-            gcm.get(),
-            lcm.get(),
-            mn.get(),
-            mj.get(),
-            allow_zero,
-            debug
-        );
-    }
-    } // pragma parallel
+#pragma omp for
+        for (int64_t i = 0; i < n_boot; i++) {
+            // each thread get a memory block of size `n`
+            // the below is bookkeeping to assign the correct block to each thread
+            p_sample = sample.get() + (i * n);
+            p_sample_end = p_sample + n;
+            // sort the allocated block for this bootstrap sample
+            std::sort(p_sample, p_sample_end);
+            dips[i]
+                = dipstat <= diptst(
+                      p_sample, n, lo_hi.get(), &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
+        }
+    }  // pragma parallel
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
     return p_val;
-} // diptest_pval_mt
+}  // diptest_pval_mt
 #endif
-
 
 namespace bindings {
 
-void bind_diptest(py::module &m) {
-    m.def(
-        "diptest",
-        &diptest::diptest,
-        py::arg("x"),
-        py::arg("allow_zero") = 1,
-        py::arg("debug") = 0
-    );
+void bind_diptest(py::module& m) {
+    m.def("diptest", &diptest::diptest, py::arg("x"), py::arg("allow_zero") = 1, py::arg("debug") = 0);
 }
 
-void bind_diptest_full(py::module &m) {
-    m.def(
-        "diptest_full",
-        &diptest::diptest_full,
-        py::arg("x"),
-        py::arg("allow_zero") = 1,
-        py::arg("debug") = 0
-    );
+void bind_diptest_full(py::module& m) {
+    m.def("diptest_full", &diptest::diptest_full, py::arg("x"), py::arg("allow_zero") = 1, py::arg("debug") = 0);
 }
 
-void bind_diptest_pval(py::module &m) {
+void bind_diptest_pval(py::module& m) {
     m.def(
         "diptest_pval",
         &diptest::diptest_pval,
@@ -243,12 +180,11 @@ void bind_diptest_pval(py::module &m) {
         py::arg("n_boot") = 10000,
         py::arg("allow_zero") = 1,
         py::arg("debug") = 0,
-        py::arg("seed") = 0
-    );
+        py::arg("seed") = 0);
 }
 
 #if defined(DIPTEST_HAS_OPENMP_SUPPORT)
-void bind_diptest_pval_mt(py::module &m) {
+void bind_diptest_pval_mt(py::module& m) {
     m.def(
         "diptest_pval_mt",
         &diptest::diptest_pval_mt,
@@ -258,8 +194,7 @@ void bind_diptest_pval_mt(py::module &m) {
         py::arg("allow_zero") = 1,
         py::arg("debug") = 0,
         py::arg("seed") = 0,
-        py::arg("n_threads") = 4
-    );
+        py::arg("n_threads") = 4);
 }
 #endif
 
