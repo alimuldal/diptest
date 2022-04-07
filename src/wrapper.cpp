@@ -86,29 +86,34 @@ py::dict diptest_full(const py::array_t<double>& x, int allow_zero, int debug) {
 double
 diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int allow_zero, int debug, int64_t seed) {
     std::random_device rd;
+    std::mt19937_64 rng;
     if (seed == 0) {
-        seed = rd();
+        rng.seed(rd());
+    } else {
+        rng.seed(seed);
     }
-
-    std::unique_ptr<double[]> sample = details::std_uniform(n_boot, n, seed);
-    double* r_sample = sample.get();
-    double* sample_end = nullptr;
+    std::uniform_real_distribution<double> dist(0.0, 1.0);
 
     double dip;
     int ifault = 0;
-    int lo_hi[4] = {0, 0, 0, 0};
+    std::array<int, 4> lo_hi = {0, 0, 0, 0};
     std::unique_ptr<int[]> gcm(new int[n]);
     std::unique_ptr<int[]> lcm(new int[n]);
     std::unique_ptr<int[]> mn(new int[n]);
     std::unique_ptr<int[]> mj(new int[n]);
     std::unique_ptr<int[]> dips(new int[n_boot]);
+    std::unique_ptr<double[]> sample(new double[n]);
+
+    double* r_sample = sample.get();
+    double* sample_end = r_sample + n;
 
     for (int64_t i = 0; i < n_boot; i++) {
-        sample_end = r_sample + n;
+        for (int64_t i = 0; i < n; i++) {
+            r_sample[i] = dist(rng);
+        }
         std::sort(r_sample, sample_end);
-        dip = diptst(r_sample, n, &lo_hi[0], &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
+        dip = diptst(r_sample, n, lo_hi.begin(), &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
         dips[i] = dipstat <= dip;
-        r_sample = sample_end;
     }
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
     return p_val;
@@ -137,7 +142,7 @@ double diptest_pval_mt(
         int ifault = 0;
         double* p_sample_end;
         double* p_sample;
-        std::unique_ptr<int[]> lo_hi(new int[4]);
+        std::array<int, 4> lo_hi = {0, 0, 0, 0};
         std::unique_ptr<int[]> gcm(new int[n]);
         std::unique_ptr<int[]> lcm(new int[n]);
         std::unique_ptr<int[]> mn(new int[n]);
@@ -151,9 +156,9 @@ double diptest_pval_mt(
             p_sample_end = p_sample + n;
             // sort the allocated block for this bootstrap sample
             std::sort(p_sample, p_sample_end);
-            dips[i]
-                = dipstat <= diptst(
-                      p_sample, n, lo_hi.get(), &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
+            dips[i] = dipstat <= diptst(
+                p_sample, n, lo_hi.begin(), &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug
+            );
         }
     }  // pragma parallel
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
