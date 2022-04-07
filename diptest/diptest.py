@@ -138,6 +138,10 @@ def diptest(
         Defaults to 4, if set to 1 the computation is
         performed single threaded. -1 will set the number of threads equal to
         all available cores
+        Note that multithreading is quite memory intensive for an array of
+        length n we need to allocate:
+            8 * (4 * `n` * `n_threads` + `n` * `n_boot` + `n_boot`) bytes
+            excluding the input array itself
     seed : int, default=None
         seed used for the generation of the uniform samples when computing the
         p-value.
@@ -164,7 +168,7 @@ def diptest(
 
 
     if boot_pval:
-        n_threads = n_threads or 0
+        n_threads = n_threads or 4
         if n_threads == -1:
             n_threads = multiprocessing.cpu_count()
         if n_threads > 1 and _mt_support:
