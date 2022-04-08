@@ -108,8 +108,8 @@ diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int al
     double* sample_end = r_sample + n;
 
     for (int64_t i = 0; i < n_boot; i++) {
-        for (int64_t i = 0; i < n; i++) {
-            r_sample[i] = dist(rng);
+        for (int64_t j = 0; j < n; j++) {
+            r_sample[j] = dist(rng);
         }
         std::sort(r_sample, sample_end);
         dip = diptst(r_sample, n, &lo_hi[0], &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
