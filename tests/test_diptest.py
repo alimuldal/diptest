@@ -9,9 +9,9 @@ from diptest.diptest import _mt_support
 
 _cdir = os.path.dirname(os.path.realpath(__file__))
 _TEST_SAMPLE = np.load(os.path.join(_cdir, 'test_sample.npy'))
-_TEST_SAMPLE_DIP = 0.017877630831641567
-_TEST_SAMPLE_PVAL = 0.02938
-_TEST_SAMPLE_TABLE_PVAL = 0.0320754126767796
+_TEST_SAMPLE_DIP = 0.0159638598499375
+_TEST_SAMPLE_PVAL = 0.083635
+_TEST_SAMPLE_TABLE_PVAL = 0.0867741514531395
 
 
 def _generator(N, distance=0.5, sigma=1.0):
