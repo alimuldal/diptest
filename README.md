@@ -58,21 +58,21 @@ Compatible compilers through Pybind11:
 
 To enable OpenMP use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_OPENMP=ON" pip install diptest --no-binary diptest
+    CMAKE_ARGS="-DDIPTEST_ENABLE_OPENMP=ON" pip install diptest --no-binary diptest
 ```
 
 #### Debug installation
 
 To enable a debug build use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DCMAKE_BUILD_TYPE=Debug" pip install diptest --no-binary diptest
+    CMAKE_ARGS="-DCMAKE_BUILD_TYPE=Debug" pip install diptest --no-binary diptest
 ```
 
 #### Debug printing
 
 To enable the debug print statements use:
 ```bash
-    SKBUILD_CONFIGURE_OPTIONS="-DDIPTEST_ENABLE_DEBUG=ON" pip install diptest --no-binary diptest
+    CMAKE_ARGS="-DDIPTEST_ENABLE_DEBUG=ON" pip install diptest --no-binary diptest
 ```
 then call the function with debug argument set to a value greater than zero:
 ```python3
