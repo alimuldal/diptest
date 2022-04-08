@@ -96,7 +96,7 @@ diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int al
 
     double dip;
     int ifault = 0;
-    std::array<int, 4> lo_hi = {0, 0, 0, 0};
+    int lo_hi[4] = {0, 0, 0, 0};
     std::unique_ptr<int[]> gcm(new int[n]);
     std::unique_ptr<int[]> lcm(new int[n]);
     std::unique_ptr<int[]> mn(new int[n]);
@@ -112,7 +112,7 @@ diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int al
             r_sample[i] = dist(rng);
         }
         std::sort(r_sample, sample_end);
-        dip = diptst(r_sample, n, lo_hi.begin(), &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
+        dip = diptst(r_sample, n, &lo_hi[0], &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
         dips[i] = dipstat <= dip;
     }
     double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
@@ -142,7 +142,8 @@ double diptest_pval_mt(
         int ifault = 0;
         double* p_sample_end;
         double* p_sample;
-        std::array<int, 4> lo_hi = {0, 0, 0, 0};
+        std::unique_ptr<int[]> lo_hi(new int[n]);
+        std::memset(lo_hi.get(), 0, 4);
         std::unique_ptr<int[]> gcm(new int[n]);
         std::unique_ptr<int[]> lcm(new int[n]);
         std::unique_ptr<int[]> mn(new int[n]);
@@ -157,7 +158,7 @@ double diptest_pval_mt(
             // sort the allocated block for this bootstrap sample
             std::sort(p_sample, p_sample_end);
             dips[i] = dipstat <= diptst(
-                p_sample, n, lo_hi.begin(), &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug
+                p_sample, n, lo_hi.get(), &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug
             );
         }
     }  // pragma parallel
