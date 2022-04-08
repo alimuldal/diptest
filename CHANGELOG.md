@@ -1,5 +1,18 @@
 # Diptest Changelog
 
+## v0.2.2 -- March 2022
+
+Patch release
+
+### Changes
+
+* Fix for incorrect number of default threads in bootstrap p-value computation
+* Minimal scikit-build version is 0.14.1
+
+#### Internal
+
+* Reduce memory footprint single-threaded bootstrap computation p-value
+
 ## v0.2.1 -- March 2022
 
 Patch release
