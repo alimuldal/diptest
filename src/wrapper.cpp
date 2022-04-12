@@ -115,7 +115,7 @@ diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int al
         dip = diptst(r_sample, n, &lo_hi[0], &ifault, gcm.get(), lcm.get(), mn.get(), mj.get(), allow_zero, debug);
         dips[i] = dipstat <= dip;
     }
-    double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
+    double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0L) / n_boot;
     return p_val;
 }  // diptest_pval
 
@@ -162,7 +162,7 @@ double diptest_pval_mt(
             );
         }
     }  // pragma parallel
-    double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0.0) / n_boot;
+    double p_val = std::accumulate(dips.get(), dips.get() + n_boot, 0L) / n_boot;
     return p_val;
 }  // diptest_pval_mt
 #endif
