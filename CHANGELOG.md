@@ -1,5 +1,13 @@
 # Diptest Changelog
 
+## v0.2.3 -- April 2022
+
+Patch release
+
+### Changes
+
+* Fix conversion to double in accumulate
+
 ## v0.2.2 -- March 2022
 
 Patch release

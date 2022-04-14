@@ -22,7 +22,7 @@ NAME = 'diptest'
 
 MAJOR = 0
 REVISION = 2
-PATCH = 2
+PATCH = 3
 DEV = False
 
 # note: also update README.rst
