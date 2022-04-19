@@ -10,18 +10,6 @@ namespace diptest {
 
 namespace details {
 
-std::unique_ptr<double[]> std_uniform(const int64_t n_boot, const int64_t n, const int64_t seed) {
-    std::mt19937_64 rng;
-    rng.seed(seed);
-    std::uniform_real_distribution<double> dist(0.0, 1.0);
-    int64_t size = n_boot * n;
-    std::unique_ptr<double[]> sample(new double[size]);
-    for (int64_t i = 0; i < size; i++) {
-        sample[i] = dist(rng);
-    }
-    return sample;
-}
-
 double diptest(const double* x_ptr, int N, int allow_zero, int debug) {
     int ifault = 0;
     int lo_hi[4] = {0, 0, 0, 0};
@@ -84,11 +72,11 @@ py::dict diptest_full(const py::array_t<double>& x, int allow_zero, int debug) {
 }  // diptest_full
 
 double
-diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int allow_zero, int debug, int64_t seed) {
-    std::random_device rd;
-    std::mt19937_64 rng;
+diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int allow_zero, int debug, uint64_t seed) {
+    pcg64 rng;
     if (seed == 0) {
-        rng.seed(rd());
+        pcg_extras::seed_seq_from<std::random_device> seed_source;
+        rng.seed(seed_source);
     } else {
         rng.seed(seed);
     }
@@ -126,35 +114,46 @@ double diptest_pval_mt(
     const int64_t n_boot,
     int allow_zero,
     int debug,
-    int64_t seed,
+    uint64_t seed,
     size_t n_threads) {
-    std::random_device rd;
+
+    std::unique_ptr<bool[]> dips(new bool[n_boot]);
+    pcg64 global_rng;
     if (seed == 0) {
-        seed = rd();
+        pcg_extras::seed_seq_from<std::random_device> seed_source;
+        global_rng.seed(seed_source);
+    } else {
+        global_rng.seed(seed);
     }
 
-    // allocate whole sample block in one go.
-    std::unique_ptr<double[]> sample = details::std_uniform(n_boot, n, seed);
-    std::unique_ptr<bool[]> dips(new bool[n_boot]);
-
-#pragma omp parallel num_threads(n_threads) shared(dips)
+#pragma omp parallel num_threads(n_threads) shared(dips, global_rng)
     {
         int ifault = 0;
-        double* p_sample_end;
-        double* p_sample;
         std::unique_ptr<int[]> lo_hi(new int[n]);
         std::memset(lo_hi.get(), 0, 4);
         std::unique_ptr<int[]> gcm(new int[n]);
         std::unique_ptr<int[]> lcm(new int[n]);
         std::unique_ptr<int[]> mn(new int[n]);
         std::unique_ptr<int[]> mj(new int[n]);
+        std::unique_ptr<double[]> sample(new double[n]);
+
+        double* p_sample = sample.get();
+        double* p_sample_end = p_sample + n;
+
+        // PCG family has different streams which are, in theory, independent of each other.
+        // Hence, we can use the same seed and a different stream to draw independent samples
+        // from each thread without having to allocate the whole block
+        pcg64 rng = global_rng;
+        rng.set_stream(omp_get_thread_num() + 1);
+        std::uniform_real_distribution<double> dist(0.0, 1.0);
+
 
 #pragma omp for
         for (int64_t i = 0; i < n_boot; i++) {
-            // each thread get a memory block of size `n`
-            // the below is bookkeeping to assign the correct block to each thread
-            p_sample = sample.get() + (i * n);
-            p_sample_end = p_sample + n;
+            // refill the sample array with fresh draws
+            for (int64_t j = 0; j < n; j++) {
+                sample[j] = dist(rng);
+            }
             // sort the allocated block for this bootstrap sample
             std::sort(p_sample, p_sample_end);
             dips[i] = dipstat <= diptst(

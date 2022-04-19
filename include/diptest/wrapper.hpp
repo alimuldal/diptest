@@ -18,6 +18,9 @@ extern "C" {
 #include <random>     // mt19937_64, uniform_real_distribution
 #include <stdexcept>  // runtime_error
 
+#include "pcg_random.hpp"
+#include "pcg_extras.hpp"
+
 #if defined(DIPTEST_HAS_OPENMP_SUPPORT)
 #include <omp.h>
 #endif
@@ -46,14 +49,13 @@ namespace py = pybind11;
 namespace diptest {
 
 namespace details {
-std::unique_ptr<double[]> std_uniform(const int64_t n_boot, const int64_t n, const int64_t seed);
 double diptest(const double* x_ptr, int N, int allow_zero = 1, int debug = 0);
 }  // namespace details
 
 double diptest(const py::array_t<double>& x, int allow_zero, int debug);
 py::dict diptest_full(const py::array_t<double>& x, int allow_zero, int debug);
 double
-diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int allow_zero, int debug, int64_t seed);
+diptest_pval(const double dipstat, const int64_t n, const int64_t n_boot, int allow_zero, int debug, uint64_t seed);
 
 double diptest_pval_mt(
     const double dipstat,
@@ -61,7 +63,7 @@ double diptest_pval_mt(
     const int64_t n_boot,
     int allow_zero,
     int debug,
-    int64_t seed,
+    uint64_t seed,
     size_t n_threads
 
 );
