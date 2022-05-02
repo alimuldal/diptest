@@ -128,6 +128,7 @@ The fork is an update with a number of changes:
 * P-value computation using bootstrapping has been moved down to C++ with optional parallelisation support through OpenMP
 * Removed overhead caused by debug branching statements by placing them under a compile-time definition
 * Added tests and wheel support
+* C implementation of diptest was rewritten in C++ by [Prodromos Kolyvakis](https://github.com/prokolyvakis)
 
 ## License
 

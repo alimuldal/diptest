@@ -1,5 +1,13 @@
 # Diptest Changelog
 
+## v0.4.0 -- May 2022
+
+### Changes 
+
+* diptest.c was rewritten in C++ (Special thanks to [Prodromos Kolyvakis](https://github.com/prokolyvakis))
+* Incorporated OptimizeForArchitecture from VC for better architecture specific
+  compile flags
+
 ## v0.3.0 -- April 2022
 
 ### Changes
