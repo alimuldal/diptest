@@ -6,6 +6,10 @@
 
 * Fix bug in bootstrap p-value computation due to missing cast
 
+### Changes
+
+* Speed by moving critical values to constant class. (Special thanks to [Prodromos Kolyvakis](https://github.com/prokolyvakis))
+
 ## v0.4.1 -- May 2022
 
 ### Enhancements
