@@ -1,5 +1,11 @@
 # Diptest Changelog
 
+## v0.4.2 -- May 2022
+
+### Fixes
+
+* Fix bug in bootstrap p-value computation due to missing cast
+
 ## v0.4.1 -- May 2022
 
 ### Enhancements
