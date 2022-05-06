@@ -207,7 +207,7 @@ def test_diptest_bootstrap():
         seed=42
     )
     assert np.isclose(dip, _TEST_SAMPLE_DIP)
-    assert abs(_TEST_SAMPLE_PVAL - pv) < 5e3
+    assert np.isclose(pv, _TEST_SAMPLE_PVAL, rtol=5e-4)
 
 
 if _mt_support:
