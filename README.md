@@ -3,6 +3,7 @@
 [![Linux Build](https://github.com/RUrlus/diptest/actions/workflows/linux.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/linux.yml)
 [![Windows Build](https://github.com/RUrlus/diptest/actions/workflows/windows.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/windows.yml)
 [![MacOS build](https://github.com/RUrlus/diptest/actions/workflows/macos.yml/badge.svg)](https://github.com/RUrlus/diptest/actions/workflows/macos.yml)
+[![PyPi](http://img.shields.io/pypi/v/diptest.svg)](https://pypi.org/project/diptest/)
 
 A Python/C(++) implementation of Hartigan & Hartigan's dip test for unimodality.
 
